@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 </head>
 <style>
     @font-face {
@@ -12,11 +12,11 @@
 
         src:local('NotoSansKR-Regular'),
 
-        url('NotoSansKR-Regular.ttf'),
+        url('../NotoSansKR-Regular.ttf'),
 
-        url('NotoSansKR-Light.ttf') format('woff'),
+        url('../NotoSansKR-Light.ttf') format('woff'),
 
-        url('NotoSansKR-Light.ttf') format('truetype');
+        url('../NotoSansKR-Light.ttf') format('truetype');
 
     }
 
@@ -81,11 +81,11 @@
 <header class="head">
 <h1>상품 구매</h1>
 </header>
-<img src="images/스니커즈/RBD_게임_로우.png">
+<img src="../images/스니커즈/RBD_게임_로우.png">
 <table class="pay-table">
     <tr>
         <th>상품명</th>
-        <td>`${}` <=data binding</td>
+        <td id="productName">product Name</td>
     </tr>
     <tr>
         <th>수량</th>
@@ -112,7 +112,7 @@
     </tr>
     <tr>
     <th >판매가</th>
-    <td id="price">115000</td>
+    <td id="productPrice" data-price="10000">Product Price</td>
 </tr>
     <tr>
     <th>쿠폰</th>
@@ -138,16 +138,19 @@
 </div>
 </body>
 <script>
+
    $(function(){
-       $(function updateTotal(){
+       $(function updateTotal() {
+
+
            // const qnt=document.querySelector('.qnt-select').getAttribute('value');
            // const price=document.querySelector('#price').getAttribute('');
            // const coupon=document.querySelector('.coupon').getAttribute('');
            // let total=qnt*price*coupon const qnt=document.querySelector('.qnt-select').getAttribute('value');
-           const qnt=parseInt($(' qnt-select').val());
-           const price=parseInt($('#price').text());
-           const coupon=parseFloat($(' .coupon').val());
-           const deliveryFee=3000;
+           const qnt = parseInt($('.qnt-select').val());
+          // const price = parseInt($('#productPrice').data('price'));
+           const coupon = parseFloat($('.coupon').val());
+           const deliveryFee = 3000;
 
            // examine the validity of qnt, price, coupon
            if (!isNaN(qnt) && !isNaN(price) && !isNaN(coupon)) {
@@ -162,19 +165,30 @@
            }
 
            //calculate total price
-           let total=qnt*price*(1-coupon/100)+deliveryFee;
+           // let total=qnt*price*(1-coupon/100)+deliveryFee;
+           //
+           // //update the total
+           // $('#total').text(total.toFixed(2));
 
-           //update the total
-           $('#total').text(total.toFixed(2));
-
-           //Event listenser for quantity change and coupon policy
+           //Event listener for quantity change and coupon policy
            $(' .qnt-select, .coupon').on('change', function () {
                updateTotal();
-           })
+           });
+
            //Inital update
            updateTotal();
-       });
-   });
+
+         // attempt to get the data from category.html and bind them on the HTML body
+           const productInfo=document.querySelectorAll('.product-info');
+
+               const productName=productInfo.getAttribute('data-product');
+               const productPrice=productInfo.getAttribute('data-price');
+
+    $('#productName').text(productName);
+    $('#productPrice').data('price',productPrice);
+
+          });
+
 </script>
 
 </html>
