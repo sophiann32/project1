@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+</head>
+<style>
+    @font-face {
+
+        font-family: 'NotoSansKR-Regular';
+
+        src:local('NotoSansKR-Regular'),
+
+        url('NotoSansKR-Regular.ttf'),
+
+        url('NotoSansKR-Light.ttf') format('woff'),
+
+        url('NotoSansKR-Light.ttf') format('truetype');
+
+    }
+
+
+
+    .head {
+        font-family: 'NotoSansKR-Regular',sans-serif;
+        text-align: center;
+    }
+
+    * {
+        background: #FFFFFF;
+    }
+    .pay-table   {
+        margin: auto;
+        margin-top: 11px;
+        border: 1px solid saddlebrown;
+        border-collapse: collapse;
+        background: #ffffff;
+        font-weight: 400;
+        font-size: 20px;
+        /*background: antiquewhite !important;*/
+    }
+
+    th,td {
+
+        border:1px solid saddlebrown;
+        padding: 3px 11px;
+        height: 33px;
+
+    }
+    th {
+          width: 60px;
+    }
+    td {
+        width: 80px;
+        padding-left: 21px;
+    }
+
+    img  {
+        display: block;
+        margin: 0 auto;
+        padding: 11px;
+    }
+
+    .qnt-select {
+        font-size: 18px;
+        margin-left: 7px;
+
+    }
+    .coupon {
+        font-size: 18px;
+    }
+    .btn {
+        display: inline-block;
+        text-align: center;
+
+    }
+
+</style>
+<body>
+<header class="head">
+<h1>상품 구매</h1>
+</header>
+<img src="images/스니커즈/RBD_게임_로우.png">
+<table class="pay-table">
+    <tr>
+        <th>상품명</th>
+        <td>`${}` <=data binding</td>
+    </tr>
+    <tr>
+        <th>수량</th>
+        <td id="select">
+            <select class="qnt-select">
+                <option value selected>1</option>
+                <option value>2</option>
+                <option value>3</option>
+                <option value>4</option>
+                <option value>5</option>
+                <option value>6</option>
+                <option value>7</option>
+                <option value>8</option>
+                <option value>9</option>
+                <option value>10</option>
+
+            </select>
+
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td style="color: coral"><small>10 수량 초과는 고객센터로 문의하세요</small></td>
+    </tr>
+    <tr>
+    <th >판매가</th>
+    <td id="price">115000</td>
+</tr>
+    <tr>
+    <th>쿠폰</th>
+    <td>
+        <select class="coupon">
+            <option value selected>쿠폰선택안함</option>
+            <option value="10">10% 할인쿠폰</option>
+            <option value="15">15% 첫 가입 할인쿠폰</option>
+        </select>
+    </td>
+        <tr>
+    <th>배송비</th>
+    <td>3000원</td>
+</tr>
+    <tr>
+    <th>총계</th>
+    <td id="total">0</td>
+</tr>
+
+</table>
+<div class="btn">
+<button type="submit">결제</button>
+</div>
+</body>
+<script>
+   $(function(){
+       $(function updateTotal(){
+           // const qnt=document.querySelector('.qnt-select').getAttribute('value');
+           // const price=document.querySelector('#price').getAttribute('');
+           // const coupon=document.querySelector('.coupon').getAttribute('');
+           // let total=qnt*price*coupon const qnt=document.querySelector('.qnt-select').getAttribute('value');
+           const qnt=parseInt($(' qnt-select').val());
+           const price=parseInt($('#price').text());
+           const coupon=parseFloat($(' .coupon').val());
+           const deliveryFee=3000;
+
+           // examine the validity of qnt, price, coupon
+           if (!isNaN(qnt) && !isNaN(price) && !isNaN(coupon)) {
+               // Calculate total price
+               let total = qnt * price * (1 - coupon / 100) + deliveryFee;
+
+               // Update the total in the HTML
+               $('#total').text(total.toFixed(2));
+           } else {
+               // Handle the case where parsing fails, set total to 0 or show an error message
+               $('#total').text('0.00');
+           }
+
+           //calculate total price
+           let total=qnt*price*(1-coupon/100)+deliveryFee;
+
+           //update the total
+           $('#total').text(total.toFixed(2));
+
+           //Event listenser for quantity change and coupon policy
+           $(' .qnt-select, .coupon').on('change', function () {
+               updateTotal();
+           })
+           //Inital update
+           updateTotal();
+       });
+   });
+</script>
+
+</html>
