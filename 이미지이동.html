@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="shoeslab/suho/test/css/123.css">
+    <style>
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transition: opacity 3s ease-in-out; /* 트랜지션 효과 추가 */
+        }
+
+        .slider img.active {
+            opacity: 1;
+        }
+
+        p {
+            font-size: 1.5em;
+            line-height: 2em;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    <title>ShoesLab</title>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#Best">Best</a></li>
+            <li><a href="#Men">Men</a></li>
+            <li><a href="#Woman">Woman</a></li>
+            <li><a href="#Kids">Kids</a></li>
+        </ul>
+    </nav>
+    <section id="shop" class="featured-products">
+        <div class="slider-container">
+            <div class="slider">
+                <img src="shoeslab/suho/test/images/걷는뒷모습.jpg" alt="청바지 신발" class="active">
+                <img src="shoeslab/suho/test/images/나이키2.jpg" alt="나이키 신발">
+                <img src="shoeslab/suho/test/images/스니커즈.jpg" alt="스니커즈">
+                <div class="text-overlay">
+                    <h1>Welcome to our shoes shopping mall</h1>
+                    <p>Discover the latest trends in fashion. Shop now!</p>
+                    <a href="#shop" class="btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slider img');
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            setInterval(nextSlide, 5000);
+            showSlide(currentSlide);
+        });
+    </script>
+
+</header>
+
+<footer>
+
+    <p>&copy; 2024 Trend Fashion, Shoes Store.</p>
+
+</footer>
+
+</body>
+</html>

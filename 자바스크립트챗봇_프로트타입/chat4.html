@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat4</title>
+    <script src="js/jquery.js"></script>
+    <style>
+    #chat-container {
+        width: 300px;
+        height: 500px;
+        border: 1px solid #5a23c8;
+        margin: 20px auto;
+        padding: 10px;
+        overflow-y: scroll;
+    }
+
+    #input-container {
+        width: 300px;
+        margin: 10px auto;
+    }
+
+    #user-input {
+        margin-bottom: 5px;
+        border: 1px solid #5a23c8;
+        height: 22px;
+    }
+
+    #send-btn {
+        height: 27px;
+        margin-left: 7px;
+        background-color: #9188a2;
+        font-size: 18px;
+
+    }
+    </style>
+</head>
+<body>
+<div id="chat-container">
+
+</div>
+
+<script>
+$(function () {
+    const chatContainer = $('#chat-container');
+
+    function appendMessage(sender, message) {
+        const messageElement = $(`<div></div>`).html(`<strong>${sender}:</strong> $${message}`);
+        chatContainer.append(messageElement);
+        chatContainer.scrollTop(chatContainer.prop(`scrollHeight`));
+    }
+
+
+    function 환영인사() {
+        appendMessage('chatbot', '<br>threadEarth 쇼핑몰에 오신 것을 환영합니다.' +
+            '<br>저희 shoes 전문쇼핑몰입니다.' +
+            '<br>문의할 상품은 어떤 건가요? 유형을 선택해 주세요' +
+            '<p> 1. 스니커즈<br> 2. 축구화<br> 3. 러닝화<br> 4. 슬리퍼<br> 5. 부츠<br> 6. 등산화<br> 7. 하이킹부츠<br> 8. 슬립온');
+
+    }
+
+    function sendMessage(userMessage) {
+        appendMessage('User', userMessage);
+        if (CATEGORY_STATUS === 1) {
+            if (userMessage.toLowerCase().includes('1') || userMessage.toLowerCase().includes('스니커즈')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+            } else if (userMessage.toLowerCase().includes('2') || userMessage.toLowerCase().includes('축구화')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+
+            } else if (userMessage.toLowerCase().includes('3') || userMessage.toLowerCase().includes('러닝화')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+            } else if (userMessage.toLowerCase().includes('4') || userMessage.toLowerCase().includes('슬리퍼')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+            } else if (userMessage.toLowerCase().includes('5') || userMessage.toLowerCase().includes('부츠')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+            } else if (userMessage.toLowerCase().includes('6') || userMessage.toLowerCase().includes('등산화')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+            } else if (userMessage.toLowerCase().includes('7') || userMessage.toLowerCase().includes('하이킹부츠')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+            } else if (userMessage.toLowerCase().includes('8') || userMessage.toLowerCase().includes('슬립온')) {
+                showSubCategories(['여성용', '남성용', '아이용']);
+                CATEGORY_STATUS = 2;
+            } else {
+                setTimeout(function () {
+                    appendMessage('chatbot', '다른 도움이 필요한가요?');
+                }, 500);
+            }
+
+        }
+        else if (CATEGORY_STATUS===2) {
+
+            if (userMessage.toLowerCase().includes('1') || userMessage.toLowerCase().includes('220')) {
+                    showSubCategories(['하양', '남색', '브라운']);
+                    CATEGORY_STATUS = 3;
+
+            } else if(userMessage.toLowerCase().includes('2') || userMessage.toLowerCase().includes('225')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            } else if (userMessage.toLowerCase().includes('3') || userMessage.toLowerCase().includes('230')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            } else if(userMessage.toLowerCase().includes('4') || userMessage.toLowerCase().includes('235')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            } else if(userMessage.toLowerCase().includes('5') || userMessage.toLowerCase().includes('240')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            } else if(userMessage.toLowerCase().includes('6') || userMessage.toLowerCase().includes('245')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            } else if(userMessage.toLowerCase().includes('7') || userMessage.toLowerCase().includes('250')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            } else if(userMessage.toLowerCase().includes('8') || userMessage.toLowerCase().includes('255')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            }  else if(userMessage.toLowerCase().includes('9') || userMessage.toLowerCase().includes('260')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            }  else if(userMessage.toLowerCase().includes('10') || userMessage.toLowerCase().includes('265')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            }  else if(userMessage.toLowerCase().includes('11') || userMessage.toLowerCase().includes('270')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            }  else if(userMessage.toLowerCase().includes('12') || userMessage.toLowerCase().includes('275')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            }  else if(userMessage.toLowerCase().includes('13') || userMessage.toLowerCase().includes('280')) {
+                showSubCategories(['하양', '남색', '브라운']);
+                CATEGORY_STATUS = 3;
+
+            }  else {
+                setTimeout(function () {
+                    appendMessage('chatbot', '다른 도움이 필요한가요?');
+                }, 500);
+            }
+            }
+
+
+        else if (CATEGORY_STATUS === 3) {
+            const selectedCategory = userMessage.toLowerCase();
+            if (selectedCategory.includes('하양') || selectedCategory.includes('남색') || selectedCategory.includes('브라운')) {
+                sendSubCategoryMessage(selectedCategory, ['하양', '남색', '브라운']);
+            } else if (selectedCategory.includes('스니커즈') || selectedCategory.includes('축구화') || selectedCategory.includes('러닝화')) {
+                 sendSubCategoryMessage(selectedCategory, ['스니커즈','축구화','러닝화']);
+            } else {
+                appendMessage('<br>chatbot', '<br> 입력하신 정보를 처리할 수 없습니다.')
+            }
+
+            CATEGORY_STATUS = 1;
+        }
+
+        userInput.val('');
+    }
+
+    function showSubCategories(subCategories) {
+        setTimeout(function () {
+            appendMessage('<br>chatbot','<br>누구를 위한 건가요?:<p>');
+            for(let k=0;k<subCategories.length;k++) {
+                chatContainer.append(`${k+1}.${subCategories[k]}<br>`);
+            }
+            chatContainer.scrollTop(chatContainer.prop('scrollHeight'));
+        },500);
+    }
+
+
+
+    function sendSubCategoryMessage(selectedCategory,subCategories) {
+        const selectedSubCategory=subCategories.find(sub=>selectedCategory.includes(sub.toLowerCase()));
+        if(selectedCategory) {
+            setTimeout(function (){
+                appendMessage('<br>chatbot',`<br>${selectedSubCategory}에 대한 정보를 제공합니다.`);
+
+            },500);
+        } else {
+            appendMessage('chatbot','죄송합니다. 입력하신 정보로는 처리할 수 없습니다.')
+        }
+    }
+환영인사();
+
+
+    let inputContainer=$(`<div id="input-container"></div>`).appendTo('body');
+    let userInput=$(`<input type="text" id="user-input" placeholder="메세지를 입력하세요">`).appendTo(inputContainer);
+    let sendBtn=$(`<button id="send-btn">전송</button>`).appendTo(inputContainer);
+})
+</script>
+</body>
+</html>

@@ -22,14 +22,25 @@
     * {
         background: #FFFFFF;
     }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
     .pay-table  {
         margin: auto;
-        margin-top: 11px;
+        margin-top: 40px;
         border: 1px solid saddlebrown;
         border-collapse: collapse;
         /*background: #ffffff;*/
         font-weight: 400;
         font-size: 20px;
+        width: 400px;
+        float: right;
         /*background-color: #4fa9ad;
                  */
     }
@@ -38,12 +49,13 @@
 
         border:1px solid saddlebrown;
         padding: 3px 11px;
-        height: 33px;
+        height: 35px;
 
     }
     th {
           width: 60px;
     }
+
     td {
         width: 80px;
         padding-left: 21px;
@@ -51,13 +63,16 @@
 
     img  {
         display: block;
-        margin: 0 auto;
+        /*margin: 0 auto;*/
         padding: 11px;
+        /*position: relative;*/
+
     }
 
-    .qnt-select {
+    .qnt-select, .size-select, .color-select {
         font-size: 18px;
         margin-left: 7px;
+        padding: 3px;
 
     }
     .coupon {
@@ -66,9 +81,10 @@
     .btn {
         /*display: inline-block;*/
         text-align: center;
-        margin-top: 20px;
-
-
+        position: absolute;
+        margin-top: -140px;
+        margin-left: 1150px;
+    /*    이건 아닌데...이미지의 위치의 변동과 같이 움직이게끔 해야 되는데...*/
     }
 
     button[type="submit"] {
@@ -88,6 +104,7 @@
 <header class="head">
 <h1 class="productName">상품 구매</h1>
 </header>
+<div class="container">
 <img src="" id="img">
 <!--<img src="">-->
 <table class="pay-table">
@@ -96,6 +113,42 @@
         <td class="productName">product Name</td>
     </tr>
     <tr>
+        <th rowspan="2">상품정보</th>
+        <td> 색상
+        <select class="color-select">
+            <option value="" selected> 베이지</option>
+            <option value=""> 남색 </option>
+            <option value=""> 핑크</option>
+        </select>
+        </td>
+    </tr>
+        <tr>
+<!--        <th>상품정보</th>-->
+        <td>사이즈
+            <select class="size-select">
+        <option value="" >220</option>
+            <option value="" >225</option>
+            <option value="" >230</option>
+            <option value="" >235</option>
+            <option value="" >240</option>
+            <option value="" >245</option>
+            <option value="" >250</option>
+            <option value="" >255</option>
+            <option value="" selected>260</option>
+            <option value="" >265</option>
+            <option value="" >270</option>
+            <option value="" >275</option>
+            <option value="" >280</option>
+            <option value="" >285</option>
+
+            </select>
+
+
+        </td>
+</tr>
+
+      <tr>
+
         <th>수량</th>
         <td id="select">
             <select class="qnt-select">
@@ -115,8 +168,8 @@
         </td>
     </tr>
     <tr>
-        <td></td>
-        <td style="color: coral"><small>10 수량 초과는 고객센터로 문의하세요</small></td>
+<!--        <td></td>-->
+        <td style="color: coral;text-align: center" colspan="2" ><small >10 수량 초과는 고객센터로 문의하세요</small></td>
     </tr>
     <tr>
     <th >판매가</th>
@@ -141,9 +194,12 @@
 </tr>
 
 </table>
+</div>
+
 <div class="btn">
 <button type="submit">구매</button>
 </div>
+
 </body>
 <script>
     //###########################################
@@ -166,6 +222,7 @@
         const deliveryFee = 3000
         var PriceRate = 1
 
+    //유효성 검정
         if(isNaN(qnt)){
             $('#total').text('수량이 입력되지 않았습니다');
             return
