@@ -7,20 +7,12 @@
 </head>
 <style>
     @font-face {
-
         font-family: 'NotoSansKR-Regular';
-
         src:local('NotoSansKR-Regular'),
-
         url('../NotoSansKR-Regular.ttf'),
-
         url('../NotoSansKR-Light.ttf') format('woff'),
-
         url('../NotoSansKR-Light.ttf') format('truetype');
-
     }
-
-
 
     .head {
         font-family: 'NotoSansKR-Regular',sans-serif;
@@ -30,15 +22,16 @@
     * {
         background: #FFFFFF;
     }
-    .pay-table   {
+    .pay-table  {
         margin: auto;
         margin-top: 11px;
         border: 1px solid saddlebrown;
         border-collapse: collapse;
-        background: #ffffff;
+        /*background: #ffffff;*/
         font-weight: 400;
         font-size: 20px;
-        /*background: antiquewhite !important;*/
+        /*background-color: #4fa9ad;
+                 */
     }
 
     th,td {
@@ -71,10 +64,23 @@
         font-size: 18px;
     }
     .btn {
-        display: inline-block;
+        /*display: inline-block;*/
         text-align: center;
+        margin-top: 20px;
+
 
     }
+
+    button[type="submit"] {
+        display: inline-block; /* Make the button inline-block to center align */
+        margin: 0 auto; /* Set margins to auto to horizontally center the button */
+        width: 200px;
+        height: 50px;
+        font-size: 22px;
+        border-radius: 4px;
+        background-color: #aa7d80;
+    }
+
 
 </style>
 
@@ -82,8 +88,8 @@
 <header class="head">
 <h1 class="productName">상품 구매</h1>
 </header>
-<!--<img src="../images/스니커즈/RBD_게임_로우.png">-->
-<img src="">
+<img src="" id="img">
+<!--<img src="">-->
 <table class="pay-table">
     <tr>
         <th>상품명</th>
@@ -136,7 +142,7 @@
 
 </table>
 <div class="btn">
-<button type="submit">결제</button>
+<button type="submit">구매</button>
 </div>
 </body>
 <script>
@@ -149,12 +155,12 @@
 
     $('.productName').text(productName)
     $('#productPrice').text(productPrice)
-    $('body > img').attr('src',imageUrl)
+    $('#img').attr('src',imageUrl)
     //###########################
 
 
     // 가격 계산 비즈니스 로직
-    function udateFinalPrice(){
+    function updateFinalPrice(){
         const qnt = parseInt($('.qnt-select').val());
         const coupon = parseFloat($('.coupon').val());
         const deliveryFee = 3000
@@ -180,12 +186,12 @@
     // 이벤트 등록 작업
     $(document).ready(function() {
         $('.qnt-select, .coupon').change(function() {
-            udateFinalPrice();
+            updateFinalPrice();
         });
     });
 
     //페이지 들어오자마자 가격 갱신
-    $(udateFinalPrice);
+    $(updateFinalPrice);
 
    //
    // $(function(){
