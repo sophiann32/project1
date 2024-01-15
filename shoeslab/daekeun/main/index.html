@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<title>shoeslab</title>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="assets/css/main.css">
+	<script defer src="script.js"></script>
+</head>
+<body>
+	<header id="header" class="alt">
+		<div class="inner">
+		<h1>ShoesLab</h1>
+		<p>슈드랩과 함께하는 신발여행 </p>
+	</div>
+	</header><!-- Wrapper -->
+	<nav id="navibar">
+		<ul>
+			<li><a href="#">HOME</a></li>
+			<li class="submenu">
+				<a href="#">MEN</a>
+				<div class="sbox s1 smenu">
+					<a href="#">운동화</a>
+					<a href="#">스니커즈</a>
+					<a href="#">슬립온</a>
+					<a href="#">슬리퍼</a>
+					<a href="#">워커</a>
+					<a href="#">부츠</a>
+					<a href="#">등산화</a>
+				</div>
+			</li>
+			<li class="submenu">
+				<a href="#">WOMAN</a>
+				<div class="sbox s2 smenu">
+					<a href="#">스니커즈</a>
+					<a href="#">슬립온</a>
+					<a href="#">슬리퍼</a>
+					<a href="#">워커</a>
+					<a href="#">부츠</a>
+					<a href="#">등산화</a>
+				</div>
+			</li>
+			<li class="submenu">
+				<a href="#">KIDS</a>
+				<div class="sbox s3 smenu">
+					<a href="#">운동화</a>
+					<a href="#">스니커즈</a>
+					<a href="#">슬립온</a>
+					<a href="#">슬리퍼</a>
+					<a href="#">워커</a>
+					<a href="#">부츠</a>
+					<a href="#">등산화</a>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<div id="wrapper">
+		<div id="slider">
+			<div class="slide"><img src="images/banner.jpg" alt="Slide 1"></div>
+			<div class="slide"><img src="images/banner2.jpg" alt="Slide 2"></div>
+			<div class="slide"><img src="images/banner3.jpg" alt="Slide 3"></div>
+			<div class="slide"><img src="images/banner4.png" alt="Slide 4"></div>
+			<div class="slide"><img src="images/banner5.png" alt="Slide 5"></div>
+		</div>
+		<script>
+			let currentSlide = 0;
+
+			function showSlide(n) {
+				const slides = document.getElementsByClassName("slide");
+
+				if (n >= slides.length) {
+					currentSlide = 0;
+				} else if (n < 0) {
+					currentSlide = slides.length - 1;
+				} else {
+					currentSlide = n;
+				}
+
+				for (let i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";
+				}
+
+				slides[currentSlide].style.display = "block";
+			}
+
+			function nextSlide() {
+				showSlide(currentSlide + 1);
+			}
+
+			function prevSlide() {
+				showSlide(currentSlide - 1);
+			}
+
+			// Auto slide every 3 seconds
+			setInterval(nextSlide, 3000);
+		</script>
+
+				<!-- Banner -->
+			<section id="intro" class="main">
+				<h2>Best items~!</h2>
+				<div class="arrow left" onclick="showPreviousProduct()">&#9665;</div>
+				<div class="product-container" id="productContainer">
+					<div class="product">
+						<a href="#">
+						<img src="images/닥터마틴%20쿼드%20플랙%20폴리시드%20스무스%20250,000.jpg" alt="Product 1">
+						<p class="product-name">플랙</p>
+							<p class="price">₩250,000</p>
+						</a>
+					</div>
+					<div class="product">
+						<a href="#">
+						<img src="images/닥터마틴%20아이샴%20빈티지%20스무스%20%20220,000원.jpg" alt="Product 2">
+							<p class="product-name">플랙</p>
+							<p class="price">₩250,000</p>
+						</a>
+					</div>
+					<div class="product">
+						<a href="#">
+						<img src="images/닥터마틴%20단테%20170,000원.jpg" alt="Product 3">
+							<p class="product-name">플랙</p>
+							<p class="price">₩250,000</p>
+						</a>
+					</div>
+					<div class="product">
+						<a href="#">
+						<img src="images/닥터마틴%20아드리안%20크레이지%20호스%20%20220,000원.jpg" alt="Product 4">
+							<p class="product-name">플랙</p>
+							<p class="price">₩250,000</p>
+						</a>
+					</div>
+					<div class="product">
+						<a href="#">
+						<img src="images/닥터마틴%20아드리안%20크레이지%20호스%20%20220,000원.jpg" alt="Product 4">
+							<p class="product-name">플랙</p>
+							<p class="price">₩250,000</p>
+						</a>
+					</div>
+					<div class="product">
+						<a href="#">
+						<img src="images/닥터마틴%20아드리안%20크레이지%20호스%20%20220,000원.jpg" alt="Product 4">
+							<p class="product-name">플랙</p>
+							<p class="price">₩250,000</p>
+						</a>
+					</div>
+				</div>
+				<div class="arrow right" onclick="showNextProduct()">&#9655;</div>
+			</section>
+
+			<!-- 아이템들 -->
+			<section class="main items">
+				<article class="item">
+					<header>
+						<a href="#"><img src="images/pic01.webp" alt="" width="800" height="400"></a>
+						<h3>Winter Styles</h3>
+					</header>
+					<p>추운 겨울을 누구보다 따뜻하게 즐기세요.</p>
+					<ul class="actions">
+						<li><a href="#" class="button">더 보기</a></li>
+					</ul>
+				</article>
+				<article class="item">
+					<header>
+						<a href="#"><img src="images/pic02.jpg" alt="" width="800" height="400"></a>
+						<h3>Blandit adipiscing</h3>
+					</header>
+					<p>한 걸음 한 걸음 가볍게 즐기세요.</p>
+					<ul class="actions">
+						<li><a href="#" class="button">더 보기</a></li>
+					</ul>
+				</article>
+				<article class="item">
+					<header>
+						<a href="#"><img src="images/pic03.jpg" alt="" width="800" height="400"></a>
+						<h3>Lorem massa nulla</h3>
+					</header>
+					<p>신데렐라도 구매한 그 구두.</p>
+					<ul class="actions">
+						<li><a href="#" class="button">더 보기</a></li>
+					</ul>
+				</article>
+				<article class="item">
+					<header>
+						<a href="#"><img src="images/pic04.jpg" alt="" width="800" height="400"></a>
+						<h3>Ipsum sed tempus</h3>
+					</header>
+					<p>2024년 새 학기도 신나게 달려보자.</p>
+					<ul class="actions">
+						<li><a href="#" class="button">더 보기</a></li>
+					</ul>
+				</article>
+			</section>
+	</div>
+
+</body>
+
+		<footer id="footer">
+		<section id="cta" class="main special">
+				<h2>신발가게아저씨</h2>
+				<p>나는 오늘도 신발을 판다<br>너는 사야한다 신발을<br>제발 사줘 신발을</p>
+		</section>
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+			</ul>
+		</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script><script src="assets/js/skel.min.js"></script><script src="assets/js/util.js"></script><script src="assets/js/main.js"></script></body></html>
