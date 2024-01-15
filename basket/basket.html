@@ -77,30 +77,32 @@
     }
 
 </style>
+
 <body>
 <header class="head">
-<h1>상품 구매</h1>
+<h1 class="productName">상품 구매</h1>
 </header>
-<img src="../images/스니커즈/RBD_게임_로우.png">
+<!--<img src="../images/스니커즈/RBD_게임_로우.png">-->
+<img src="">
 <table class="pay-table">
     <tr>
         <th>상품명</th>
-        <td id="productName">product Name</td>
+        <td class="productName">product Name</td>
     </tr>
     <tr>
         <th>수량</th>
         <td id="select">
             <select class="qnt-select">
-                <option value selected>1</option>
-                <option value>2</option>
-                <option value>3</option>
-                <option value>4</option>
-                <option value>5</option>
-                <option value>6</option>
-                <option value>7</option>
-                <option value>8</option>
-                <option value>9</option>
-                <option value>10</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
 
             </select>
 
@@ -112,7 +114,7 @@
     </tr>
     <tr>
     <th >판매가</th>
-    <td id="productPrice" data-price="10000">Product Price</td>
+    <td id="productPrice" data-price="10000" >Product Price</td>
 </tr>
     <tr>
     <th>쿠폰</th>
@@ -138,57 +140,104 @@
 </div>
 </body>
 <script>
+    //###########################################
+    // 페이지 갱신됐을 때 데이터 바인딩 작업
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productName');
+    const productPrice = urlParams.get('productPrice');
+    const imageUrl = urlParams.get('imageUrl');
 
-   $(function(){
-       $(function updateTotal() {
+    $('.productName').text(productName)
+    $('#productPrice').text(productPrice)
+    $('body > img').attr('src',imageUrl)
+    //###########################
 
 
-           // const qnt=document.querySelector('.qnt-select').getAttribute('value');
-           // const price=document.querySelector('#price').getAttribute('');
-           // const coupon=document.querySelector('.coupon').getAttribute('');
-           // let total=qnt*price*coupon const qnt=document.querySelector('.qnt-select').getAttribute('value');
-           const qnt = parseInt($('.qnt-select').val());
-          // const price = parseInt($('#productPrice').data('price'));
-           const coupon = parseFloat($('.coupon').val());
-           const deliveryFee = 3000;
+    // 가격 계산 비즈니스 로직
+    function udateFinalPrice(){
+        const qnt = parseInt($('.qnt-select').val());
+        const coupon = parseFloat($('.coupon').val());
+        const deliveryFee = 3000
+        var PriceRate = 1
 
-           // examine the validity of qnt, price, coupon
-           if (!isNaN(qnt) && !isNaN(price) && !isNaN(coupon)) {
-               // Calculate total price
-               let total = qnt * price * (1 - coupon / 100) + deliveryFee;
+        if(isNaN(qnt)){
+            $('#total').text('수량이 입력되지 않았습니다');
+            return
+        }
+        if(isNaN(productPrice)){
+            $('#total').text('가격이 입력되지 않았습니다');
+            return;
+        }
+        if(!isNaN(coupon)){
+            PriceRate = (1 - coupon / 100)
+        }
 
-               // Update the total in the HTML
-               $('#total').text(total.toFixed(2));
-           } else {
-               // Handle the case where parsing fails, set total to 0 or show an error message
-               $('#total').text('0.00');
-           }
+        // 가격 갱신
+        let total = parseFloat(qnt * productPrice * PriceRate + deliveryFee).toFixed(2);
+        $('#total').text(total);
+    }
 
-           //calculate total price
-           // let total=qnt*price*(1-coupon/100)+deliveryFee;
-           //
-           // //update the total
-           // $('#total').text(total.toFixed(2));
+    // 이벤트 등록 작업
+    $(document).ready(function() {
+        $('.qnt-select, .coupon').change(function() {
+            udateFinalPrice();
+        });
+    });
 
-           //Event listener for quantity change and coupon policy
-           $(' .qnt-select, .coupon').on('change', function () {
-               updateTotal();
-           });
+    //페이지 들어오자마자 가격 갱신
+    $(udateFinalPrice);
 
-           //Inital update
-           updateTotal();
-
-         // attempt to get the data from category.html and bind them on the HTML body
-           const productInfo=document.querySelectorAll('.product-info');
-
-               const productName=productInfo.getAttribute('data-product');
-               const productPrice=productInfo.getAttribute('data-price');
-
-    $('#productName').text(productName);
-    $('#productPrice').data('price',productPrice);
-
-          });
-
+   //
+   // $(function(){
+   //     $(function updateTotal() {
+   //
+   //         // const qnt=document.querySelector('.qnt-select').getAttribute('value');
+   //         // const price=document.querySelector('#price').getAttribute('');
+   //         // const coupon=document.querySelector('.coupon').getAttribute('');
+   //         // let total=qnt*price*coupon const qnt=document.querySelector('.qnt-select').getAttribute('value');
+   //         const qnt = parseInt($('.qnt-select').val());
+   //        // const price = parseInt($('#productPrice').data('price'));
+   //         const coupon = parseFloat($('.coupon').val());
+   //         const deliveryFee = 3000;
+   //
+   //         // examine the validity of qnt, price, coupon
+   //         if (!isNaN(qnt) && !isNaN(price) && !isNaN(coupon)) {
+   //             // Calculate total price
+   //             let total = qnt * price * (1 - coupon / 100) + deliveryFee;
+   //
+   //             // Update the total in the HTML
+   //             $('#total').text(total.toFixed(2));
+   //         } else {
+   //             // Handle the case where parsing fails, set total to 0 or show an error message
+   //             $('#total').text('0.00');
+   //         }
+   //
+   //         //calculate total price
+   //         // let total=qnt*price*(1-coupon/100)+deliveryFee;
+   //         //
+   //         // //update the total
+   //         // $('#total').text(total.toFixed(2));
+   //
+   //         //Event listener for quantity change and coupon policy
+   //         $(' .qnt-select, .coupon').on('change', function () {
+   //             updateTotal();
+   //         });
+   //
+   //         //Inital update
+   //         updateTotal();
+   //
+   //       // attempt to get the data from category.html and bind them on the HTML body
+   //       //   const productInfo=document.querySelectorAll('.product-info');
+   //       //
+   //       //       const productName=productInfo.getAttribute('data-product');
+   //       //       const productPrice=productInfo.getAttribute('data-price');
+   //       //
+   //  // $('#productName').text(productName);
+   //  // $('#productPrice').data('price',productPrice);
+   //
+   //
+   //        });
+   // })
 </script>
 
 </html>
