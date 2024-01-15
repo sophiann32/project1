@@ -39,7 +39,9 @@
             color: #888;
             text-decoration: none;
         }
-
+        .hidden {
+            visibility: hidden;
+        }
 
     </style>
 
@@ -55,16 +57,16 @@
 
 <main class="form-signin">
     <form>
-        <img class="mb-4" src="images/logo.PNG" alt="" width="203" height="45">
+        <img class="mb-4" src="images/logo.PNG" alt="" width="300" height="45">
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
         <div class="form-floating">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <label for="floatingInput">아이디</label>
         </div>
         <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+            <label for="floatingPassword">비밀번호</label>
         </div>
 
         <div class="form-check text-start my-3">
@@ -73,12 +75,14 @@
                 아이디 기억하기
             </label>
         </div>
-        <div id="utilMenu" style="display:block">
 
-            <a href="http://localhost:63342/1_FrontEnd/01_HTML_Study/4_%EC%8B%A4%EC%A0%84%EC%98%88%EC%A0%9C/project-je/project-jieun_team/05_login_page_.html?_ijt=ktr3kkrbrvd84so6o79dk6gamm&_ij_reload=RELOAD_ON_SAVE" class="right">회원가입</a>
-        </div>
 
         <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+        <div id="utilMenu" style="display:block">
+            <a href="#" class ="hidden">아이디 찾기</a>
+            <a href="#" class ="hidden">비밀번호 찾기</a>
+            <a href="http://localhost:63342/1_FrontEnd/01_HTML_Study/4_%EC%8B%A4%EC%A0%84%EC%98%88%EC%A0%9C/project-je/project-jieun_team/05_login_page_.html?_ijt=ktr3kkrbrvd84so6o79dk6gamm&_ij_reload=RELOAD_ON_SAVE" class="right">회원가입</a>
+        </div>
         <p class="mt-5 mb-3 text-body-secondary">&copy; 2024.01.15</p>
 
     </form>
