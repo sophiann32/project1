@@ -1,91 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-<head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <!doctype html>
+    <html lang="ko" data-bs-theme="auto">
+    <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Signin Template · Bootstrap v5.3</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.118.2">
+        <title>Checkout example · Bootstrap v5.3</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <meta name="theme-color" content="#712cf9">
+
+        <style>
+
+        </style>
+
+        <link href="checkout.css" rel="stylesheet">
+    </head>
+
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4" src="images/logo.PNG" alt="" width="250" height="57">
+                <h2>회원가입</h2>
+                <p class="lead">24시간 너무 편해서 딸이 엄마에게,<br>
+                    아빠가 아이에게 선물하는 신발이 있다는 것?</br>
+                    바로 슈랩입니다.</p>
+            </div>
+
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">회원 정보</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">이름
+                                    <img src="images/ico_required.gif" class="" alt="필수"></label>
+                                <input type="text" class="form-control" id="firstName" placeholder="홍길동" pattern=".{2,}" value="" required>
+                                <div class="invalid-feedback">
+                                    확실한 정보를 입력하세요.
+                                </div>
+                            </div>
+
+                            </div>
+                        <div class="col-sm-6">
+                            <label for="phone" class="form-label">전화번호
+                                <img src="images/ico_required.gif" class="" alt="필수"></label>
+                            <input type="tel" class="form-control" id="phone" placeholder="010-1111-1111" pattern=".{9,}" value="" required>
+                            <div class="invalid-feedback">
+                                확실한 정보를 입력하세요.(- 생략가능)
+                            </div>
+                        </div>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+                            <div class="col-12">
+                                <label for="username" class="form-label">아이디
+                                    <img src="images/ico_required.gif" class="" alt="필수"></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text">@</span>
+                                    <input type="text" class="form-control" id="username" placeholder="Id" pattern=".{5,}" required>
+                                    <div class="invalid-feedback">
+                                       5자리 이상 필수 기재사항.
+                                    </div>
+                                </div>
+                            </div>
+                         <div class="col-12">
+                            <label for="password" class="form-label">비밀번호
+                                <img src="images/ico_required.gif" class="" alt="필수"></label>
+                            <input type="password" class="form-control" id="password" placeholder="********" pattern=".{8,}" value="" required>
+                            <div class="invalid-feedback">
+                                8자리 이상 필수 기재사항.
+                            </div>
+                         </div>
+                        <div class="col-12">
+                            <label for="password2" class="form-label">비밀번호 확인
+                                <img src="images/ico_required.gif" class="" alt="필수"></label>
+                            <input type="password" class="form-control" id="password2" placeholder="********" pattern=".{8,}" value="" required>
+                            <div class="invalid-feedback" id="passwordMismatch">
+                                비밀번호가 다릅니다. 확인 해주세요.
+                            </div>
+                        </div>
+                        <style>
+                            #passwordMismatch {
+                                display: none;
+                                color: red;
+                                margin-top: 5px;
+                            }
+                        </style>
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+                        <script>
+                            // 비밀번호 확인 체크 함수
+                            function checkPasswordMatch() {
+                                var password1 = document.getElementById("password").value;
+                                var password2 = document.getElementById("password2").value;
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+                                var mismatchDiv = document.getElementById("passwordMismatch");
+
+                                if (password1 !== password2) {
+                                    mismatchDiv.style.display = "block"; // 다를 경우 메시지 표시
+                                } else {
+                                    mismatchDiv.style.display = "none"; // 같을 경우 메시지 숨김
+                                }
+                            }
+
+                            // 비밀번호 확인 입력 필드에 input 이벤트를 추가하여 실시간으로 체크
+                            document.getElementById("password2").addEventListener("input", checkPasswordMatch);
+                        </script>
 
 
 
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        #utilMenu a:first-child {
-            margin-left: 0;
-            padding-left: 0;
-            border-left: none;
-            text-decoration: none;
-        }
-        #utilMenu a {
-            display: inline-block;
-            margin-left: 10.5px;
-            padding-left: 10.5px;
-            font-size: 15px;
-            font-weight: 400;
-            color: #888;
-            text-decoration: none;
-        }
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email
+                                    <img src="images/ico_required.gif" class="" alt="필수"><span class="text-body-secondary"></span></label>
+                                <input type="email" class="form-control" id="email" placeholder="id@example.com" required>
+                                <div class="invalid-feedback">
+                                    유효한 이메일 주소릅 입력하세요.
+                                </div>
+                            </div>
+                             <div class="col-md-4">
+                                 <label for="state" class="form-label">도시명
+                                     <img src="images/ico_required.gif" class="" alt="필수"></label>
+
+                                 <select class="form-select" id="state" required>
+                                     <option value="">선택...</option>
+                                     <option>서울</option>
+                                     <option>경기도</option>
+                                     <option>인천광역시</option>
+                                     <option>강원도</option>
+                                     <option>경상북도</option>
+                                     <option>경상남도</option>
+                                     <option>충청북도</option>
+                                     <option>충청남도</option>
+                                     <option>전라북도</option>
+                                     <option>전라남도</option>
+                                     <option>제주도</option>
+
+                                 </select>
+                                 <div class="invalid-feedback">
+                                     유효한 정보를 선택하세요.
+                                 </div>
+                             </div>
+
+                            <div class="col-12">
+                                <label for="address" class="form-label">주소(지역)
+                                    <img src="images/ico_required.gif" class="" alt="필수"></label>
+                                <input type="text" class="form-control" id="address" placeholder="서초대로77길 54" required>
+                                <div class="invalid-feedback">
+                                   도로명 + 건물번호 or 지역명(동/리) + 번지(건물번호) or 사서함명 + 번호
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="address2" class="form-label">상세주소
+                                    <img src="images/ico_required.gif" class="" alt="필수">
+                                    <span class="text-body-secondary"></span></label>
+                                <input type="text" class="form-control" id="address2" placeholder="서초더블유타워 13,14층" required>
+                                <div class="invalid-feedback">
+                                   유효한 정보를 입력하세요.
+                                </div>
+                            </div>
 
 
-    </style>
 
-    <link href="sign-in.css" rel="stylesheet">
+                            <div class="col-md-3">
+                                <label for="zip" class="form-label">우편번호
+                                    <img src="images/ico_required.gif" class="" alt="필수"></label>
+                                <input type="text" class="form-control" id="zip" placeholder="00000" pattern=".{5,}" required>
+                                <div class="invalid-feedback">
+                                    유효한 정보를 입력하세요.
+                                </div>
+                            </div>
 
 
+                        <hr class="my-4">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="same-address" required>
+                            <label class="form-check-label" for="same-address">[필수] 이용약관 동의</label>
+                            <div class="invalid-feedback">
+                             확인하세요.
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="save-info" required>
+                            <label class="form-check-label" for="save-info">[필수] 개인정보 수집 및 이용에 동의하십니까? </label>
+                            <div class="invalid-feedback">
+                                확인하세요.
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">회원 유형</h4>
+
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                                <label class="form-check-label" for="credit">개인 회원</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <label class="form-check-label" for="debit">정기 회원</label>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="row gy-3">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="form-label"><h4>추가 정보</h4> <br>추천인 아이디</br></label>
+                                <input type="text" class="form-control" id="cc-name" placeholder="">
+
+                            </div>
+
+                        </div>
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">회원가입</button>
+                    </form>
+                </div>
+
+
+        </main>
+
+        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+            <p class="mb-1">&copy; 2024 Shoes Lap</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/checkout.js"></script></body>
+    </html>
 
 </head>
 <body>
 
-
-
-
-<main class="form-signin">
-    <form>
-        <img class="mb-4" src="images/logo.PNG" alt="" width="203" height="45">
-        <h1 class="h3 mb-3 fw-normal">로그인</h1>
-
-        <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div>
-
-        <div class="form-check text-start my-3">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                아이디 기억하기
-            </label>
-        </div>
-        <div id="utilMenu" style="display:block">
-
-            <a href="http://localhost:63342/1_FrontEnd/01_HTML_Study/4_%EC%8B%A4%EC%A0%84%EC%98%88%EC%A0%9C/project-je/project-jieun_team/05_login_page_.html?_ijt=ktr3kkrbrvd84so6o79dk6gamm&_ij_reload=RELOAD_ON_SAVE" class="right">회원가입</a>
-        </div>
-
-        <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-body-secondary">&copy; 2024.01.15</p>
-
-    </form>
-
-
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
