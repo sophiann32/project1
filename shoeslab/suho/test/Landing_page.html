@@ -1,72 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/123.css">
-  <title>ShoesLab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/123.css">
+    <style>
+        header {
+            background-color: #212529;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            height: 600px;
+            position: relative;
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            position: absolute;
+            transition: opacity 3s ease-in-out;
+        }
+
+        .slider img.active {
+            opacity: 1;
+        }
+
+    </style>
+    <title>ShoesLab</title>
 </head>
 <body>
 
 <header>
-  <nav>
-    <ul>
-      <li><a href="#Best">Best</a></li>
-      <li><a href="#Men">Men</a></li>
-      <li><a href="#Woman">Woman</a></li>
-      <li><a href="#Kids">Kids</a></li>
-    </ul>
-  </nav>
-  <div class="hero">
-    <div class="hero-content">
-      <img src="images/걷는뒷모습.jpg" alt="청바지 신발">
-      <div class="text-overlay">
-        <h1>Welcome to our shoes shopping mall</h1>
-        <p>Discover the latest trends in fashion. Shop now!</p>
-        <a href="#shop" class="btn">Shop Now</a>
-      </div>
-    </div>
-  </div>
+    <nav>
+        <ul>
+            <li><a href="http://www.naver.com">★회원가입하고 20% 할인쿠폰 받기★</a></li>
+            <li><a href="http://www.naver.com">카카오톡 플러스친구 추가하면 3,000원 할인 쿠폰 증정!</a></li>
+
+        </ul>
+    </nav>
+    <section id="shop" class="featured-products">
+        <div class="slider-container">
+            <div class="slider">
+            <img src="images/걷는뒷모습.jpg" alt="청바지 신발" class="active">
+            <img src="images/나이키2.jpg" alt="나이키 신발">
+            <img src="images/스니커즈.jpg" alt="스니커즈">
+            <div class="text-overlay">
+                <ul>
+                <p>Welcome </p>
+                <h1>SHOES LAB</h1>
+                </ul>
+                <a href="http://www.naver.com" class="btn">Main Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slider img');
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            setInterval(nextSlide, 3500);
+            showSlide(currentSlide);
+        });
+    </script>
+
 </header>
-
-<section id="shop" class="featured-products">
-  <!-- Product cards go here -->
-</section>
-
-<section id="about" class="about-us">
-  <div class="hero">
-    <div class="hero-content">
-  <img src="images/나이키2.jpg" alt="나이키 신발">
-  <div class="text-overlay">
-    <h2>F/W SEASON BEST SELLER</h2>
-    <p>Shoes LAB</p>
-    <a href="#shop" class="btn">Shop Now</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="hero">
-    <div class="hero-content">
-  <img src="images/스니커즈.jpg" alt="신발">
-  <div class="text-overlay">
-  <h2>HAPPY NEW YEAR</h2>
-  <p>Code LAB</p>
-  <a href="#shop" class="btn">Shop Now</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2024 Fashion, Shoes Store.</p>
-  <style>
-
-
-
-  </style>
-</footer>
-
 </body>
 </html>
