@@ -200,6 +200,11 @@ $(function () {
     let inputContainer=$(`<div id="input-container"></div>`).appendTo('body');
     let userInput=$(`<input type="text" id="user-input" placeholder="메세지를 입력하세요">`).appendTo(inputContainer);
     let sendBtn=$(`<button id="send-btn">전송</button>`).appendTo(inputContainer);
+
+    sendBtn.click(function(){
+        const userMessage=userInput.val();
+        sendMessage(userMessage);
+    })
 })
 </script>
 </body>
