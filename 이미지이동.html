@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/123.css">
+    <link rel="stylesheet" href="shoeslab/suho/test/css/123.css">
     <style>
-        header {
-            background-color: #212529;
-            padding: 10px;
-            text-align: center;
-            color: #fff;
-        }
         .slider-container {
             position: relative;
             width: 100%;
@@ -21,22 +15,25 @@
 
         .slider {
             display: flex;
-            height: 600px;
-            position: relative;
         }
 
         .slider img {
             width: 100%;
             height: auto;
             opacity: 0;
-            position: absolute;
-            transition: opacity 3s ease-in-out;
+            transition: opacity 3s ease-in-out; /* 트랜지션 효과 추가 */
         }
 
         .slider img.active {
             opacity: 1;
         }
 
+        p {
+            font-size: 1.5em;
+            line-height: 2em;
+            font-weight: bold;
+            text-align: center;
+        }
     </style>
     <title>ShoesLab</title>
 </head>
@@ -45,23 +42,22 @@
 <header>
     <nav>
         <ul>
-            <li><a href="http://www.naver.com">★회원가입하고 20% 할인쿠폰 받기★</a></li>
-            <li><a href="http://www.naver.com">카카오톡 플러스친구 추가하면 3,000원 할인 쿠폰 증정!</a></li>
-
+            <li><a href="#Best">Best</a></li>
+            <li><a href="#Men">Men</a></li>
+            <li><a href="#Woman">Woman</a></li>
+            <li><a href="#Kids">Kids</a></li>
         </ul>
     </nav>
     <section id="shop" class="featured-products">
         <div class="slider-container">
             <div class="slider">
-            <img src="images/걷는뒷모습.jpg" alt="청바지 신발" class="active">
-            <img src="images/나이키2.jpg" alt="나이키 신발">
-            <img src="images/스니커즈.jpg" alt="스니커즈">
-            <div class="text-overlay">
-                <ul>
-                <p>Welcome </p>
-                <h1>SHOES LAB</h1>
-                </ul>
-                <a href="http://www.naver.com" class="btn">Main Page</a>
+                <img src="shoeslab/suho/test/images/걷는뒷모습.jpg" alt="청바지 신발" class="active">
+                <img src="shoeslab/suho/test/images/나이키2.jpg" alt="나이키 신발">
+                <img src="shoeslab/suho/test/images/스니커즈.jpg" alt="스니커즈">
+                <div class="text-overlay">
+                    <h1>Welcome to our shoes shopping mall</h1>
+                    <p>Discover the latest trends in fashion. Shop now!</p>
+                    <a href="#shop" class="btn">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -82,16 +78,19 @@
                 currentSlide = (currentSlide + 1) % slides.length;
                 showSlide(currentSlide);
             }
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            }
 
-            setInterval(nextSlide, 3500);
+            setInterval(nextSlide, 5000);
             showSlide(currentSlide);
         });
     </script>
 
 </header>
+
+<footer>
+
+    <p>&copy; 2024 Trend Fashion, Shoes Store.</p>
+
+</footer>
+
 </body>
 </html>

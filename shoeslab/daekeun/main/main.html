@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/css.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.product-list').slick({
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      infinite: true
+    });
+  });
+</script>
+<div class="navbar">
+  <a href="#" id="logo">
+    <img src="images/logo.PNG" height="30">
+  </a>
+
+  <ul id="menu">
+    <li><a href="#"><b>Login</b></a></li>
+    <li><a href="#"><b>Sing up</b></a></li>
+    <li><a href="#"><b>Cart</b></a></li>
+    <li><a href="#"><b>Way To Visit</b></a></li>
+  </ul>
+</div>
+
+<div class="category">
+  <ul id="cate-1">
+    <li>
+      <a href="#"><b>Best</b></a>
+      <!-- 소메뉴 추가 -->
+    </li>
+    <li>
+      <a href="#"><b>Men</b></a>
+      <!-- 소메뉴 추가 -->
+      <ul class="submenu">
+        <li><a href="#">Sneakers</a></li>
+        <li><a href="#">Walker</a></li>
+        <li><a href="#">Running</a></li>
+        <li><a href="#">Slip-on</a></li>
+        <li><a href="#">Hiking-boots</a></li>
+        <li><a href="#">Boots</a></li>
+        <li><a href="#">Sliper</a></li>
+        <li><a href="#">Soccer</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#"><b>Woman</b></a>
+      <!-- 소메뉴 추가 -->
+      <ul class="submenu">
+        <li><a href="#">Sneakers</a></li>
+        <li><a href="#">Walker</a></li>
+        <li><a href="#">Running</a></li>
+        <li><a href="#">Slip-on</a></li>
+        <li><a href="#">Hiking-boots</a></li>
+        <li><a href="#">Boots</a></li>
+        <li><a href="#">Sliper</a></li>
+        <li><a href="#">Soccer</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#"><b>Kids</b></a>
+      <!-- 소메뉴 추가 -->
+      <ul class="submenu">
+        <li><a href="#">Sneakers</a></li>
+        <li><a href="#">Boots</a></li>
+        <li><a href="#">Sliper</a></li>
+        <li><a href="#">Soccer</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+<div class="slider">
+  <div class="slide">
+    <img src="images/banner.jpg" alt="이미지 1">
+  </div>
+  <div class="slide">
+    <img src="images/banner2.jpg" alt="이미지 2">
+  </div>
+  <div class="slide">
+    <img src="images/banner3.jpg" alt="이미지 3">
+  </div>
+  <div class="slide">
+    <img src="images/banner4.png" alt="이미지 3">
+  </div>
+  <div class="slide">
+    <img src="images/banner5.png" alt="이미지 3">
+  </div>
+</div>
+
+
+<div class="products">
+  <h3>Most Popular</h3>
+
+  <div class="product-list">
+    <a href="#" class="product">
+      <img src="images/Boot_Woman_모리%20첼시%20109,000원%2039,000%20원%20%5B64%25%5D.png" width="225">
+      <div class="product-name">
+        모리 첼시
+      </div>
+      <div class="product-price">
+        249,000원
+      </div>
+    </a>
+
+
+    <a href="#" class="product">
+      <img src="images/Boot_Woman_아디폼%20슈퍼스타%20부츠%20우먼스%20129,000%20원.png" width="225" height="225px">
+      <div class="product-name">
+        아디폼 슈퍼스타
+      </div>
+      <div class="product-price">
+        22,200원
+      </div>
+    </a>
+
+
+    <a href="#" class="product">
+      <img src="images/walker_man_닥터마틴%20펜톤%20벡스%20블랙%20퀼론%20330,000원.jpg" width="225" height="225px">
+      <div class="product-name">
+        닥터마틴 펜톤 벡스
+      </div>
+      <div class="product-price">
+        330,000원
+      </div>
+    </a>
+
+
+    <a href="#" class="product">
+      <img src="images/walker_man_닥터마틴%203홀%20카라라%20210,000원.jpg" width="225" height="225px">
+      <div class="product-name">
+        닥터마틴 3홀 카라라
+      </div>
+      <div class="product-price">
+        210,000원
+      </div>
+    </a>
+
+
+    <a href="#" class="product">
+      <img src="images/Sneakers_man_휠라레인저22.png" width="225" height="225px">
+      <div class="product-name">
+        휠라 레인저22
+      </div>
+      <div class="product-price">
+        212,900원
+      </div>
+    </a>
+
+
+    <a href="#" class="product">
+      <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+      <div class="product-name">
+        Sunglasses
+      </div>
+      <div class="product-price">
+        49,000
+      </div>
+    </a>
+
+    <a href="#" class="product">
+      <img src="images/Boot_Woman_모리%20첼시%20109,000원%2039,000%20원%20%5B64%25%5D.png" width="225">
+      <div class="product-name">
+        모리 첼시
+      </div>
+      <div class="product-price">
+        249,000원
+      </div>
+    </a>
+    <a href="#" class="product">
+      <img src="images/Boot_Woman_모리%20첼시%20109,000원%2039,000%20원%20%5B64%25%5D.png" width="225">
+      <div class="product-name">
+        모리 첼시
+      </div>
+      <div class="product-price">
+        249,000원
+      </div>
+    </a>
+    <a href="#" class="product">
+      <img src="images/Boot_Woman_모리%20첼시%20109,000원%2039,000%20원%20%5B64%25%5D.png" width="225">
+      <div class="product-name">
+        모리 첼시
+      </div>
+      <div class="product-price">
+        249,000원
+      </div>
+    </a>
+    <a href="#" class="product">
+      <img src="images/Boot_Woman_모리%20첼시%20109,000원%2039,000%20원%20%5B64%25%5D.png" width="225">
+      <div class="product-name">
+        모리 첼시
+      </div>
+      <div class="product-price">
+        249,000원
+      </div>
+    </a>
+
+
+  </div>
+</div>
+
+<div class="new-section">
+  <h3>New Products</h3>
+
+  <div class="new-product-list">
+    <!-- 새로운 제품들 추가 -->
+    <a href="#" class="product2">
+      <video width="400" height="600" muted autoplay playsinline loop>
+        <source src="https://static.nike.com/a/videos/q_90/1414f935-3cf2-4f66-bccf-878a57f29bea/video.mp4" type="video/mp4"></video>
+      <div class="product-name">
+        나이키 덩크 로우 프리미엄
+      </div>
+      <div class="product-price">
+        80년대의 농구 아이콘이 클래식한 디테일과 레트로 농구<br>
+        화의 감성으로 돌아왔습니다. 빈티지한 감성으로 거리를<br>
+        물들이며, 로우컷 패딩 카라로 어디서든 편안함을 느끼게<br>
+        해줍니다.
+      </div>
+    </a>
+
+    <a href="#" class="product2">
+      <video width="400" height="600" muted autoplay playsinline loop>
+        <source src="https://static.nike.com/a/videos/q_90/efab0a5d-f63a-4cc3-bbbe-1a94e1c61e9a/video.mov" type="video/mp4"></video>
+      <div class="product-name">
+        나이키 에어맥스 97
+      </div>
+      <div class="product-price">
+        나이키 에어맥스 97은 일본의 고속 열차에서 영감을 받은<br>
+        오리지널 물결 디자인과 함께 초스피드로 앞서가는 스타<br>
+        일을 선사합니다. 러닝계에 지각 변동을 일으킨 나이키 <br>
+        에어 유닛을 전체적으로 적용한 혁신적 디자인에 신선한 <br>
+        컬러와 산뜻한 디테일을 더한 신발로 일등석에 탄 듯한 <br>
+        편안함을 전해줍니다.
+      </div>
+    </a>
+
+    <a href="#" class="product2">
+      <video width="400" height="600" muted autoplay playsinline loop>
+        <source src="https://static.nike.com/a/videos/q_90/27de32a2-3f3b-4df0-8550-c1c6eab95c95/video.mp4" type="video/mp4"></video>
+      <div class="product-name">
+        나이키 터미네이터 로우
+      </div>
+      <div class="product-price">
+        '비 트루 투 유어 스쿨' 광고 캠페인과 85년도에 출시된7가<br>
+        지 오리지널 컬러웨이 중 하나에서 영감을 받은 이 신발은<br>
+        활기찬 팀 컬러로 경기의 수준을 높여줍니다.빳빳한 가죽은 <br>
+        백보드 글래스보다 더 멋스러운 룩을 선사하며 레트로 브랜<br>
+        딩이 바시티 감성으로 대미를 장식합니다. 준비를 마쳤다면<br>
+        이제 움직일 시간입니다!
+      </div>
+    </a>
+
+    <!-- 다른 새로운 제품들도 동일한 구조로 추가 -->
+  </div>
+</div>
+
+<div class="magazine-section">
+  <h3>Magazine</h3>
+
+  <div class="magazine-list">
+    <!-- 매거진 아이템 추가 -->
+    <a href="https://www.eyesmag.com/posts/155992/bode-nike-collab-astrograbber" class="magazine-item">
+      <img src="images/magazine01.jpg" alt="Magazine 1">
+      <div class="magazine-title">
+        슈즈
+      </div>
+      <div class="magazine-description">
+        <p>보디 x 나이키 협업 스니커 '아스트로 그래버' 미리보기</p>
+      </div>
+    </a>
+
+    <a href="https://www.eyesmag.com/posts/155961/dr-martens-diy-docs-with-hongik-univ" class="magazine-item">
+      <img src="images/magazine02.jpg" alt="Magazine 2">
+      <div class="magazine-title">
+       슈즈
+      </div>
+      <div class="magazine-description">
+        <p>홍익대 학생들과 함께한 닥터마틴 커스터 마이징 'DIY DOCS'</p>
+        학생들의 메세지를 담아 재탄생했다.
+      </div>
+    </a>
+
+<a href="https://www.eyesmag.com/posts/155794/new-balance-reimagined-550" class="magazine-item">
+      <img src="images/magazine03.jpg" alt="Magazine 3">
+      <div class="magazine-title">
+        슈즈
+      </div>
+      <div class="magazine-description">
+        <p>뉴발란스, 빈티지 감성으로 재해석한 '550' 공개</p>
+        3가지 컬러웨이로 표현된 자태
+      </div>
+    </a>
+
+  <a href="https://www.eyesmag.com/posts/155906/coperni-puma-sneaker" class="magazine-item">
+      <img src="images/magazine04.jpg" alt="Magazine 3">
+      <div class="magazine-title">
+        슈즈
+      </div>
+      <div class="magazine-description">
+        <p>코페르니 x 푸마 협업 스니커 발매 정보</p>
+        날렵한 실루엣
+      </div>
+    </a>
+  </div>
+</div>
+
+
+  <div class="footer">
+    <a href="http://faceboo.com">
+      <img src="https://bakey-api.codeit.kr/files/629/images/facebook.png" height="20">
+    </a>
+    <a href="http://faceboo.com">
+      <img src="https://bakey-api.codeit.kr/files/629/images/instagram.png" height="20">
+    </a>
+    <a href="http://faceboo.com">
+      <img src="https://bakey-api.codeit.kr/files/629/images/twitter.png" height="20">
+    </a>
+  </div>
+<script src="js/script.js"></script>
+</body>
+</html>
