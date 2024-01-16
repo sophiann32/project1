@@ -7,16 +7,24 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #212529;
     color: #fff;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
     font-family: "Pacifico", cursive;
 }
 
 header a {
     font-family: 'Arial', sans-serif;
+    font-size: 30px;
 
+}
+header nav ul li a {
+    display: block;
+    margin-right: 10px;
+    margin-left: 40px;
+    text-decoration: none;
+    margin-top: -50px;
 }
 nav ul {
     list-style: none;
@@ -43,11 +51,6 @@ nav a {
     position: relative;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 .text-overlay {
     position: absolute;
     top: 50%;
@@ -64,6 +67,8 @@ img {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    margin-left: 50px;
+
 }
 p {
     font-size: 2.5em;
@@ -71,8 +76,6 @@ p {
     font-weight: bold;
     text-align: center;
     margin:0 ;
-    margin-top: -100px;
-    margin-left: -30px;
 }
 h1 {
     font-size: 3em;
@@ -80,7 +83,4 @@ h1 {
     font-weight: bold;
     text-align: center;
     margin:0;
-    margin-left: -30px;
 }
-
-/* Add styles for other sections and footer as needed */
