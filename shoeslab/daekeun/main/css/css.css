@@ -112,6 +112,7 @@ body {
     width: 100%;
     overflow: hidden;
     position: relative;
+    text-align: center;
 }
 .slide {
     float: left;
@@ -119,7 +120,7 @@ body {
     position: relative;
 }
 .slide img {
-    width: 100%;
+    width: 70%;
     height: auto;
 }
 /* products */
@@ -140,6 +141,7 @@ body {
 .product{
     width: 225px;
     text-align: center;
+    border-radius: 10px;
     display: block;
     color: #545454;
     text-decoration: none;
@@ -147,13 +149,31 @@ body {
     margin-left:10px;
     margin-right: 15px;
     margin-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* 마우스 호버 및 그림자에 부드럽게 전환하도록 설정 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
 
+}
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 22px;
+}
+.product:hover {
+    transform: scale(1.1); /* 마우스를 올렸을 때 이미지 크기를 1.1배로 확대 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product-name{
-    margin-top: 20px;
-    margin-bottom: 4px;
-
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: gray;
+}
+.product-price{
+    font-size: 16px;
+    margin-bottom: 14px;
 }
 /* footer */
 .footer {
