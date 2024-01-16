@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .sneakers {
+            display: flex;
+        }
+
+        .sneakers-item {
+            text-align: center;
+            margin: 0 20px;
+
+        }
+
+    </style>
+</head>
+<body>
+<h1>Sneakers</h1>
+<div class="sneakers">
+    <div class="sneakers-item">
+
+        <a href="basket.html?productName=마가렛 4.5&productPrice=19000&imageUrl=images/Sneakers/마가렛4.5.png" class="product-info">
+            <img src="images/Sneakers/마가렛4.5.png "></a>
+        <p class="product-name">마가렛 4.5</p>
+        <p class="product-price">19,000</p>
+    </div>
+    <div class="sneakers-item">
+        <a href="basket.html?productName=우먼스 아니키 이-시리즈 AD&productPrice=89000&imageUrl=images/Sneakers/우먼스_아니키_이시리즈_AD.png">
+            <img src="images/Sneakers/우먼스_아니키_이시리즈_AD.png"></a>
+        <p class="product-name">우먼스 아니키 이-시리즈 AD</p>
+        <p class="product-price">89,000</p>
+    </div>
+    <div class="sneakers-item">
+        <a href="basket.html?productName=트리플 캔버스&productPrice=69000&imageUrl=images/Sneakers/트리플_캔버스.png">
+            <img src="images/Sneakers/트리플_캔버스.png"></a>
+        <p class="product-name">트리플 캔버스</p>
+        <p class="product-price">69,000</p>
+    </div>
+</div>
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Initialize clickCounts to store the click data
+    let clickCounts = {};
+
+    // Event listener for image clicks
+    document.querySelectorAll('.sneakers-item img').forEach(function (img) {
+        img.addEventListener('click', function () {
+            const productName = this.closest('.sneakers-item').querySelector('.product-name').textContent;
+            clickCounts[productName] = (clickCounts[productName] || 0) + 1;
+
+            // Update the chart whenever there's a click
+            updateChart();
+        });
+    });
+
+    // Function to update the chart
+    function updateChart() {
+        const labels = Object.keys(clickCounts);
+        const data = Object.values(clickCounts);
+
+        // Check if the canvas element exists
+        const existingCanvas = document.getElementById('myChart');
+        if (!existingCanvas) {
+            // If the canvas doesn't exist, create a new canvas element
+            const canvas = document.createElement('canvas');
+            canvas.id = 'myChart';
+            document.body.appendChild(canvas);
+        }
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '눈땡이',
+                    data: [12, 19, 3, 5, 2, 3, 7, 8],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+
+</body>
+<!--<script>-->
+<!--    // Initialize clickCounts to store the click data-->
+<!--    let clickCounts = {};-->
+
+<!--    // Function to update the chart-->
+<!--        function updateChart() {-->
+<!--            const labels = Object.keys(clickCounts);-->
+<!--            const data = Object.values(clickCounts);-->
+
+<!--            const ctx = document.getElementById('myChart');-->
+
+<!--            new Chart(ctx, {-->
+<!--                type: 'bar',-->
+<!--                data: {-->
+<!--                    labels: ['Sneakers', 'Walkers', 'Running Shoes', 'Slipon', 'Slipper', 'Soccer Shoes', 'Mountain Shoes', 'Hiking boots'],-->
+<!--                    datasets: [{-->
+<!--                        label: '눈땡이',-->
+<!--                        data: [12, 19, 3, 5, 2, 3, 7, 8],-->
+<!--                        borderWidth: 1-->
+<!--                    }]-->
+<!--                },-->
+<!--                options: {-->
+<!--                    scales: {-->
+<!--                        y: {-->
+<!--                            beginAtZero: true-->
+<!--                        }-->
+<!--                    }-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+
+<!--    // Event listener for image clicks-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--        document.querySelectorAll('.sneakers-item img').forEach(function (img) {-->
+<!--            img.addEventListener('click', function () {-->
+<!--                const productName = this.closest('.sneakers-item').querySelector('.product-name').textContent;-->
+<!--                clickCounts[productName] = (clickCounts[productName] || 0) + 1;-->
+
+<!--                // Update the chart whenever there's a click-->
+<!--                updateChart();-->
+<!--            });-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+</html>

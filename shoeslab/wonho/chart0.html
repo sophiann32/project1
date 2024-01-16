@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chart0</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<canvas id="myChart"></canvas>
+
+</body>
+
+
+
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Sneakers', 'Walkers', 'Running Shoes', 'Slipon', 'Slipper', 'Soccer Shoes', 'Mountain Shoes', 'Hiking boots'],
+            datasets: [{
+                label: '눈땡이',
+                data: [12, 19, 3, 5, 2, 3, 7, 8],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</html>
