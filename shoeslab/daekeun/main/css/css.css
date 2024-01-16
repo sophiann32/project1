@@ -171,6 +171,7 @@ body {
 .new-section {
     margin-top: 40px; /* 상단 여백 조절 */
     text-align: left;
+    margin-bottom: 100px;
 }
 
 .new-section h3 {
@@ -231,11 +232,14 @@ body {
     text-align: center;
     margin-top: 40px;
     margin-bottom: 80px;
+    font-size: 24px;
+    color: #545454;
 }
 
 .magazine-list {
     display: flex;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .magazine-item {
@@ -258,8 +262,7 @@ body {
 
 .magazine-title {
     font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     text-decoration: none;
 }
 
