@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/123.css">
+    <title>ShoesLab</title>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="http://www.naver.com">★회원가입하고 20% 할인쿠폰 받기★</a></li>
+            <li><a href="http://www.naver.com">카카오톡 플러스친구 추가하면 3,000원 할인 쿠폰 증정!</a></li>
+
+        </ul>
+    </nav>
+    <section id="shop" class="featured-products">
+        <div class="slider-container">
+            <div class="slider">
+            <img src="images/걷는뒷모습.jpg" alt="청바지 신발" class="active">
+            <img src="images/나이키2.jpg" alt="나이키 신발">
+            <img src="images/스니커즈.jpg" alt="스니커즈">
+            <div class="text-overlay">
+                <ul>
+                <p>Welcome </p>
+                <h1>SHOES LAB</h1>
+                </ul>
+                <a href="http://www.naver.com" class="btn">Main Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slider img');
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            setInterval(nextSlide, 3500);
+            showSlide(currentSlide);
+        });
+    </script>
+
+</header>
+</body>
+</html>
