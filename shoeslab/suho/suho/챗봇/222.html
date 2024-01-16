@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 찾아오시는 길</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 60px;
+            margin-bottom: 0px;
+        }
+        p {
+            font-size: 50px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        img {
+            max-width: 50%;
+            height: auto;
+            position: relative; /* 이미지를 기준으로 하는 상대적인 위치 설정 */
+        }
+
+        .tel {
+            font-size: 13px;
+            text-align: left;
+            background-color: #212529;
+            padding-bottom: 3px;
+            margin: 10px;
+        }
+
+        .tel p {
+            font-size: 13px;
+            margin-bottom: 0px;
+            margin-left: 480px;
+            width: 500px;
+            height: 20px;
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            text-decoration: none;
+            background-color: #1E90FF;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50px;
+            margin-top: -50px; /* 이미지 위로 버튼을 올리는 위치 설정 */
+            position: relative; /* 버튼을 이미지를 기준으로 하는 상대적인 위치 설정 */
+            top: -100%; /* 버튼을 이미지 위로 올리는 정도 설정 */
+        }
+
+        .btn:hover {
+            background-color: #999999;
+        }
+    </style>
+</head>
+<body>
+
+<h1>SHOES LAB</h1>
+<p>오프라인 매장 찾아오시는 길</p>
+<img src="images/지도.png" alt="쇼핑몰 위치 지도">
+<a href="https://map.naver.com/p/entry/place/1661016475?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.8794219&lat=37.4809530&c=15.00,0,0,0,dh" class="btn">지도 자세히 보기</a>
+</body>
+<footer>
+    <div class="tel">
+        <p>연락처 :02-2038-0800</p>
+        <p>주소 :서울특별시 금천구 가산디지털2로 144 현대테라타워 가산DK A동 20층</p>
+        <p>지번 :서울특별시 금천구 가산동 459-14 현대테라타워 가산DK A동 20층</p>
+        <p>영업시간 08:30 ~ 22:30에 운영 종료</p>
+    </div>
+</footer>
+</html>
+img {
+max-width: 50%;
+height: auto;
+position: relative;
+}
+
+.btn {
+display: inline-block;
+padding: 15px 30px;
+font-size: 20px;
+text-decoration: none;
+background-color: #1E90FF;
+color: #FFFFFF;
+border: none;
+border-radius: 50px;
+margin-top: -50px;
+position: absolute; /* 이미지를 기준으로 절대적인 위치로 설정 */
+top: 50%; /* 이미지의 중앙으로 위치 조정 */
+left: 50%; /* 이미지의 중앙으로 위치 조정 */
+transform: translate(-50%, -50%); /* 중앙 정렬 */
+}
+
+.btn:hover {
+background-color: #999999;
+}
