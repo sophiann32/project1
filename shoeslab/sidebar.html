@@ -47,4 +47,69 @@
     <a href="#" onclick="scrollToTop()"><img src="../../daekeun/main/images/위.png" alt="Contact"></a>
     <a href="#" onclick="scrollToBottom()"><img src="../../daekeun/main/images/아래.png" alt="Contact"></a>
 </div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="modalContent" width="100%" height="100%"></iframe>
+    </div>
+</div>
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.0);
+        overflow: hidden;
+        border: none;
+    }
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 85%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0);
+        padding: 12px;
+        width: 350px; /* 너비를 조절하세요 */
+        height: 60vh; /* 높이를 조절하세요 */
+        overflow: hidden;
+        border: 2px solid rgba(0, 0, 0, 0);
+    }
+    /* 닫기 버튼 스타일 */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<script>
+    function openModal(pageUrl) {
+        var modal = document.getElementById('myModal');
+        var modalContent = document.getElementById('modalContent');
+
+        // 다른 페이지를 iframe에 로드
+        modalContent.src = pageUrl;
+
+        // 모달 열기
+        modal.style.display = 'block';
+    }
+
+    // 모달 닫기
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+        document.getElementById('modalContent').src = '';
+    }
+
+    // 기존의 scrollToTop 및 scrollToBottom 함수가 여기에 들어갑니다
+</script>
 <script src="daekeun/main/js/sidebar.js"></script>
