@@ -42,23 +42,83 @@
         .hidden {
             visibility: hidden;
         }
+        #container {
+            position:relative;
+            text-align:center;
+            margin-top:30%;
+            margin-left:30%;
+        }
+        h2 {
+            font-size:2em;
+        }
+        h1{
+            font-size:3.5em;
+        }
+        a:link, a:visited {
+            text-decoration:none;
+            color:#222;
+        }
+        a:hover {
+            cursor:pointer;
+        }
+        #bg {
+            position:fixed;
+            left:0;
+            top:0;
+            width:auto;
+            height:auto;
+            min-width:100%;
+            min-height:100%;
+            z-index:-100;
+            background:url(images/flame.jpg) left top no-repeat;
+            background-size: cover;
+        }
+
+        .h3.mb-3.fw-normal {
+            width: 140px;
+            height: 50px;
+            background-color: white;
+            border: 1px rgba(38, 38, 38, 0.82);
+            border-radius: 8px;
+            font-weight: bold;
+
+
+
+           . form-check text-start my-3 {
+                color: #000000;
+               font-weight: bold;
+            }
+            .z{
+                color: #000000;
+                font-weight: bold;
+            }
+            #utilMenu{
+                color: #000000;
+                font-weight: bold;
+            }
+
+        }
 
     </style>
-
+    <script src="js/html5shiv.min.js"></script>
     <link href="sign-in.css" rel="stylesheet">
 
 
 
 </head>
 <body>
+<video src="media/shoes.mp4" autoplay loop muted poster="images/flame.jpg" id="bg"></video>
+<div id="container">
 
+    <h1><a href="https://www.youtube.com/results?search_query=%EA%B3%B5%EB%B6%80%ED%95%A0%EB%95%8C+%EB%93%A3%EB%8A%94+%EC%9D%8C%EC%95%85"></a></h1>
+</div>
 
 
 
 <main class="form-signin">
     <form>
         <img class="mb-4" src="jieun/project-jieun/images/logo.PNG" alt="" width="300" height="45">
-        <h1 class="h3 mb-3 fw-normal">로그인</h1>
+        <h1 class="h3 mb-3 fw-normal"><b></b>로그인</b></h1>
 
         <div class="form-floating">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -81,9 +141,9 @@
         <div id="utilMenu" style="display:block">
             <a href="#" class ="hidden">아이디 찾기</a>
             <a href="#" class ="hidden">비밀번호 찾기</a>
-            <a href="http://localhost:63342/1_FrontEnd/01_HTML_Study/4_%EC%8B%A4%EC%A0%84%EC%98%88%EC%A0%9C/project-je/project-jieun_team/05_login_page_.html?_ijt=ktr3kkrbrvd84so6o79dk6gamm&_ij_reload=RELOAD_ON_SAVE" class="right">회원가입</a>
+            <a href="http://localhost:63342/1_FrontEnd/01_HTML_Study/4_%EC%8B%A4%EC%A0%84%EC%98%88%EC%A0%9C/project-je/project-jieun_team/05_login_page_.html?_ijt=ktr3kkrbrvd84so6o79dk6gamm&_ij_reload=RELOAD_ON_SAVE" class="z">회원가입</a>
         </div>
-        <p class="mt-5 mb-3 text-body-secondary">&copy; 2024.01.15</p>
+        <p class="z">&copy; 2024.01.15</p>
 
     </form>
 
