@@ -3,51 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="suho/css/찾아오시는길.css">
     <title>쇼핑몰 찾아오시는 길</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 60px;
-            margin-bottom: 0px;
-        }
-        p {
-            font-size: 50px;
-            margin-bottom: 10px;
-            margin-top: 10px;
-        }
 
-        img {
-            max-width: 50%;
-            height: auto;
-        }
-        .tel {
-            font-size: 13px;
-            text-align: left;
-            background-color: #212529;
-            padding-bottom: 3px;
-            margin: 10px;
-
-        }
-        .tel p {
-            font-size: 13px;
-            margin-bottom: 0px;
-            margin-left: 480px;
-            width: 500px;
-            height: 20px;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 
 <h1>SHOES LAB</h1>
 <p>오프라인 매장 찾아오시는 길</p>
-<img src="images/지도.png" alt="쇼핑몰 위치 지도">
-
+<img src="suho/images/지도.png" alt="쇼핑몰 위치 지도">
+<a href="https://map.naver.com/p/entry/place/1661016475?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.8794219&lat=37.4809530&c=15.00,0,0,0,dh" class="btn">지도 자세히 보기</a>
 </body>
 
 <footer>
@@ -58,47 +23,6 @@
         <p>영업시간 08:30 ~ 22:30에 운영 종료</p>
     </div>
 </footer>
-<style>
-    #sidebar {
-        height: 300px;
-        width: 60px;
-        position: fixed;
-        background-color: whitesmoke;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        right: 0;
-        margin: 0;
-        top: 50%; /* 화면 세로 중앙에 위치하도록 50%로 설정 */
-        transform: translateY(-50%);
-    }
-    #sidebar a {
-        padding: 15px;
-        text-decoration: none;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-    }
-    #sidebar img {
-        width: 25px; /* 이미지 크기 조절 */
-        height: auto;
-        margin-bottom: -5px; /* 이미지 간 간격 조절 */
-    }
-    #sidebar a:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        width: 70%; /* 가로선을 항목 전체 너비로 설정 */
-        height: 1px; /* 선의 두께 */
-        background-color: grey; /* 빨간색으로 변경 */
-        bottom: -5px; /* 선을 항목 아래에 위치하도록 설정 */
-    }
-    body.dark-mode {
-        background-color: #333;
-        color: #fff;
-    }
-</style>
 <div id="sidebar">
     <a href="#"><img src="../../daekeun/main/images/다크모드.png" alt="Home"  onclick="toggleDarkMode()"></a>
     <a href="#"><img src="../../daekeun/main/images/헤드셋.png" alt="About"></a>  <!-- 오시는길 전화번호 -->
