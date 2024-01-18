@@ -325,19 +325,14 @@
 
 <div id="sidebar">
   <a href="#"><img src="daekeun/main/images/다크모드.png" alt="Home"  onclick="toggleDarkMode()"></a>
-  <a href="#" onclick="openModal('챗봇테스트.html')"><img src="daekeun/main/images/헤드셋.png" alt="Chatbot Test" ></a>  <!-- 오시는길 전화번호 -->
+  <a href="#" onclick="openModal('챗봇.html')"><img src="daekeun/main/images/헤드셋.png" alt="Chatbot Test" ></a>  <!-- 오시는길 전화번호 -->
   <a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fsharer.kakao.com%2Fpicker%2Flink%3Fapp_key%3D7bf130d58b12c170075f8f1e56b096fc%26short_key%3Df0d69bd2-7015-46c0-bfbd-97d012c765f2#login"><img src="daekeun/main/images/카카오톡.png" alt="Services"></a>
   <a href="https://www.instagram.com/accounts/login/?source=auth_switcher"><img src="daekeun/main/images/인스타.png" alt="Contact"></a>
   <a href="#" onclick="scrollToTop()"><img src="daekeun/main/images/위.png" alt="Contact"></a>
   <a href="#" onclick="scrollToBottom()"><img src="daekeun/main/images/아래.png" alt="Contact"></a>
 </div>
 
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <iframe id="modalContent" width="100%" height="100%"></iframe>
-  </div>
-</div>
+
 <style>
   .modal {
     display: none;
@@ -376,6 +371,12 @@
     cursor: pointer;
   }
 </style>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <iframe id="modalContent" width="100%" height="100%"></iframe>
+  </div>
+</div>
 <script>
   function openModal(pageUrl) {
     var modal = document.getElementById('myModal');
