@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="suho/css/찾아오시는길.css">
+    <title>쇼핑몰 찾아오시는 길</title>
+</head>
+<body>
+<main>
+    <h1><img src="daekeun/main/images/logo.PNG" width="300"  ></h1>
+    <p>오프라인 매장 찾아오시는 길</p>
+    <img src="suho/images/지도.png" alt="쇼핑몰 위치 지도">
+    <a href="https://map.naver.com/p/entry/place/1661016475?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.8794219&lat=37.4809530&c=15.00,0,0,0,dh" target="blank" class="btn">지도 자세히 보기</a>
+</main>
+<div id="sidebar">
+    <a href="#"><img src="daekeun/main/images/다크모드.png" alt="Home"  onclick="toggleDarkMode()"></a>
+    <a href="#"><img src="daekeun/main/images/헤드셋.png" alt="About"></a>
+    <a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fsharer.kakao.com%2Fpicker%2Flink%3Fapp_key%3D7bf130d58b12c170075f8f1e56b096fc%26short_key%3Df0d69bd2-7015-46c0-bfbd-97d012c765f2#login"><img src="daekeun/main/images/카카오톡.png" alt="Services"></a>
+    <a href="https://www.instagram.com/accounts/login/?source=auth_switcher"><img src="daekeun/main/images/인스타.png" alt="Contact"></a>
+    <a href="#" onclick="scrollToTop()"><img src="daekeun/main/images/위.png" alt="Contact"></a>
+    <a href="#" onclick="scrollToBottom()"><img src="daekeun/main/images/아래.png" alt="Contact"></a>
+</div>
+<script src="../../daekeun/main/js/sidebar.js"></script>
+
+<footer>
+    <div class="tel">
+        <p>연락처 :02-2038-0800</p>
+        <p>주소 :서울특별시 금천구 가산디지털2로 144 현대테라타워 가산DK A동 20층</p>
+        <p>지번 :서울특별시 금천구 가산동 459-14 현대테라타워 가산DK A동 20층</p>
+        <p>영업시간 08:30 ~ 22:30에 운영 종료</p>
+    </div>
+</footer>
+<script>
+function toggleDarkMode() {
+const body = document.body;
+body.classList.toggle('dark-mode');
+}
+</script>
+</body>
+</html>
