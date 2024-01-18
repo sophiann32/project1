@@ -5,18 +5,23 @@
     <title>Shoes Monitor</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
     canvas {
-        display: block;
-        max-width: 600px;
-        max-height: 600px;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .btn-container {
-        /*text-align: center;*/
+        text-align: center;
         margin-right: 35px;
-    }
-
-</style>
+    }</style>
 
 
 </head>
@@ -87,7 +92,7 @@
          clickMoniterChart = new Chart(ctx, {
              type: 'bar',
              data: {
-                 //      labels: ['Sneakers', 'Walkers', 'Running Shoes', 'Slipon', 'Slipper', 'Soccer Shoes', 'Mountain Shoes', 'Hiking boots'],
+                 //      labels: ['Sneakers', 'Walkers', 'Running Shoes', 'Slip-on', 'Slipper', 'Soccer Shoes', 'Mountain Shoes', 'Hiking boots'],
                  //      labels: [productName],
                  labels:clickMoniterChart_Labels,
                  datasets: [{
@@ -103,7 +108,7 @@
                          beginAtZero: true,
                          ticks: {
                              font: {
-                                 size: 24 // Increase the x-scale font size
+                                 size: 15 // Increase the x-scale font size
                              }
                          }
                      }

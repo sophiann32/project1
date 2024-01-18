@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoes Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    canvas {
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .btn-container {
+        text-align: center;
+        margin-right: 35px;
+        position: absolute;
+        top: 20px;
+    }</style>
+
+
+</head>
+<body>
+<div class="btn-container">
+<button onclick="resetChart()"> 초기화 </button>
+<button onclick="updateChart()"> 차트갱신 </button>
+</div>
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+    let clickMoniterChart
+    let clickMoniterChart_Labels = [];
+    let clickMoniterChart_Values =[];
+
+    function resetChart(){
+        localStorage.setItem('data','{}')
+    }
+     function updateChart(){
+         // 현재 시점 기준 데이터 가져오기
+         clickMoniterChart_Labels = Object.keys(JSON.parse(localStorage.getItem('data')));
+         clickMoniterChart_Values = Object.values(JSON.parse(localStorage.getItem('data')));
+
+         // 차트에 데이터 변경 내용 갱신
+         if (clickMoniterChart) {
+             // 차트가 초기화되었는지 확인 후 업데이트
+             clickMoniterChart.data.labels = clickMoniterChart_Labels;
+             clickMoniterChart.data.datasets[0].data = clickMoniterChart_Values;
+             clickMoniterChart.update();
+         }
+     }
+
+     function createChart(){
+         // 초기 상태를 가져옴
+         clickMoniterChart_Labels = Object.keys(JSON.parse(localStorage.getItem('data')));
+         clickMoniterChart_Values = Object.values(JSON.parse(localStorage.getItem('data')));
+
+         const ctx = document.getElementById('myChart').getContext('2d');
+         clickMoniterChart = new Chart(ctx, {
+             type: 'bar',
+             data: {
+
+                 labels:clickMoniterChart_Labels,
+                 datasets: [{
+                     label: '눈탱이',
+                     data: clickMoniterChart_Values,
+                     backgroundColor: getBarColors(clickMoniterChart_Values),
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     y: {
+                         beginAtZero: true,
+                         ticks: {
+                             font: {
+                                 size: 15 // Increase the x-scale font size
+                             }
+                         }
+                     }
+                 }
+
+              }
+         });
+     }
+   function getBarColors(values) {
+       return values.map(value => value >= 50 ? 'rgba(75, 192, 192, 0.8)' : 'rgba(255, 99, 132, 0.8)');
+       // Bar color varies between red and green based on the value (50 is the threshold)
+   }
+   createChart()
+
+</script>
+
+</body>
+
+</html>
