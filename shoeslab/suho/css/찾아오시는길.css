@@ -58,3 +58,45 @@ body.dark-mode {
     background-color: #333;
     color: #fff;
 }
+#sidebar {
+    height: 300px;
+    width: 60px;
+    position: fixed;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 0;
+    margin: 0;
+    top: 50%; /* 화면 세로 중앙에 위치하도록 50%로 설정 */
+    transform: translateY(-50%);
+}
+
+#sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#sidebar img {
+    width: 25px;
+    max-width: 500%;
+    height: auto;
+    margin-bottom: -5px;
+}
+#sidebar a:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 70%; /* 가로선을 항목 전체 너비로 설정 */
+    height: 1px; /* 선의 두께 */
+    background-color: grey; /* 빨간색으로 변경 */
+    bottom: -5px; /* 선을 항목 아래에 위치하도록 설정 */
+}
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
