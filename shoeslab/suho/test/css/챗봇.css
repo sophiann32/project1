@@ -1,8 +1,25 @@
+#chat-container {
+    width: 300px;
+    margin: 20px auto;
+    border:1px solid #131212;
+    padding: 10px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+#input-container {
+    width: 300px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
+    background-color: rgba(0, 0, 0, 0);
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 #chat-container {
@@ -12,9 +29,9 @@ body {
     padding: 10px;
     height: 400px;
     overflow-y: scroll;
-    background-color: #fff; /* 채팅창 배경색상 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
-    border-radius: 10px; /* 둥근 모서리 */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
 }
 
 #input-container {
@@ -25,19 +42,21 @@ body {
 }
 
 input {
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #313133;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
 button {
-    padding: 10px;
-    background-color: #5a23c8;
+    padding: 10px; /*12px*/
+    background-color: #5d5d64;
     color: #fff;
-    border: none;
-    border-radius: 5px;
+    border: none;  /*2px solid #5a23c8;*/
+    border-radius: 5px; /*8px;*/
     cursor: pointer;
+    /*transition: background-color 0.3s ease;*/
 }
 
 button:hover {
@@ -52,3 +71,5 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+

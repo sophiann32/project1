@@ -5,6 +5,24 @@
     <link rel="stylesheet" href="suho/test/css/챗봇.css">
     <title>chatbot5</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        #chat-container {
+            width: 200px;
+            margin: 20px auto;
+            border:1px solid #232121;
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            font-size: 12px;
+        }
+
+        #input-container {
+            width: 225px;
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
 <div id="chat-container"></div>
@@ -23,25 +41,25 @@
 
         function 환영인사() {
             appendMessage('chatbot', '<br>신발 전문 쇼핑몰 SHOES LAB에 오신 것을 환영합니다 💖💖' +
-                '<br>문의하실 내용을 위해 아래 항목 중 입력해주세요 :)');
-            showButtons(['남성용', '여성용', '키즈용']);
+                '<br>문의하실 내용을 위해 아래 항목 중 입력해주세요 :)' +
+                '<p> 1. 남성용<br> 2. 여성용<br> 3. 키즈용');
         }
 
         function sendMessage(userMessage) {
             appendMessage('User', userMessage);
 
             if (CATEGORY_STATUS === 1) {
-                if (userMessage.toLowerCase().includes('남성용')) {
+                if (userMessage.toLowerCase().includes('1') || userMessage.toLowerCase().includes('남성용')) {
                     selectedGender = '남성용';
-                    showSubCategories(['스니커즈', '축구화', '런닝화', '슬리퍼', '등산화', '슬립온']);
+                    showSubCategories(['스니커즈','축구화','런닝화','슬리퍼','등산화','슬립온']);
                     CATEGORY_STATUS = 2;
-                } else if (userMessage.toLowerCase().includes('여성용')) {
+                } else if (userMessage.toLowerCase().includes('2') || userMessage.toLowerCase().includes('여성용')) {
                     selectedGender = '여성용';
-                    showSubCategories(['스니커즈', '런닝화', '슬리퍼', '부츠', '하이킹부츠', '슬립온']);
+                    showSubCategories(['스니커즈','런닝화','슬리퍼','부츠','하이킹부츠','슬립온']);
                     CATEGORY_STATUS = 2;
-                } else if (userMessage.toLowerCase().includes('키즈용')) {
+                } else if (userMessage.toLowerCase().includes('3') || userMessage.toLowerCase().includes('키즈용')) {
                     selectedGender = '키즈용';
-                    showSubCategories(['스니커즈', '축구화', '런닝화', '슬리퍼', '슬립온']);
+                    showSubCategories(['스니커즈','축구화','런닝화','슬리퍼','슬립온']);
                     CATEGORY_STATUS = 2;
                 } else {
                     setTimeout(function () {
@@ -49,87 +67,32 @@
                     }, 500);
                 }
             } else if (CATEGORY_STATUS === 2) {
-                if (selectedGender === '남성용')
-                    if (userMessage.toLowerCase().includes('스니커즈')) {
-                        selectedShoeType = '스니커즈';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('축구화')) {
-                        selectedShoeType = '축구화';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('런닝화')) {
-                        selectedShoeType = '런닝화';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if ( userMessage.toLowerCase().includes('슬리퍼')) {
-                        selectedShoeType = '슬리퍼';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('등산화')) {
-                        selectedShoeType = '등산화';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('슬립온')) {
-                        selectedShoeType = '슬립온';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else {
-                        setTimeout(function () {
-                            appendMessage('chatbot', '죄송합니다. 입력하신 정보로는 처리할 수 없습니다😥');
-                        }, 500);
-                    }
-            } else if (selectedGender === '여성용') {
-                if (userMessage.toLowerCase().includes('스니커즈')) {
+                // const selectedCategory = userMessage.toLowerCase();
+                if (userMessage.toLowerCase().includes('1') || userMessage.toLowerCase().includes('스니커즈')) {
                     selectedShoeType = '스니커즈';
                     showSubCategories2(['']);
                     CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('런닝화')) {
-                    selectedShoeType = '런닝화';
-                    showSubCategories2(['']);
-                    CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('슬리퍼')) {
-                    selectedShoeType = '슬리퍼';
-                    showSubCategories2(['']);
-                    CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('부츠')) {
-                    selectedShoeType = '부츠';
-                    showSubCategories2(['']);
-                    CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('5') || userMessage.toLowerCase().includes('하이킹부츠')) {
-                    selectedShoeType = '하이킹부츠';
-                    showSubCategories2(['']);
-                    CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('슬립온')) {
-                    selectedShoeType = '슬립온';
-                    showSubCategories2(['']);
-                    CATEGORY_STATUS = 3;
-                } else {
-                    setTimeout(function () {
-                        appendMessage('chatbot', '죄송합니다. 입력하신 정보로는 처리할 수 없습니다😥');
-                    }, 500);
-                }
-            } else if (selectedGender === '키즈용') {
-                if (userMessage.toLowerCase().includes('스니커즈')) {
-                    selectedShoeType = '스니커즈';
-                    showSubCategories2(['']);
-                    CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('축구화')) {
+                } else if (userMessage.toLowerCase().includes('2') || userMessage.toLowerCase().includes('축구화')) {
                     selectedShoeType = '축구화';
                     showSubCategories2(['']);
                     CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('런닝화')) {
+                } else if (userMessage.toLowerCase().includes('3') || userMessage.toLowerCase().includes('런닝화')) {
                     selectedShoeType = '런닝화';
                     showSubCategories2(['']);
                     CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('슬리퍼')) {
+                } else if (userMessage.toLowerCase().includes('4') || userMessage.toLowerCase().includes('슬리퍼')) {
                     selectedShoeType = '슬리퍼';
                     showSubCategories2(['']);
                     CATEGORY_STATUS = 3;
-                } else if (userMessage.toLowerCase().includes('슬리퍼')) {
-                    selectedShoeType = '슬리퍼';
+                } else if (userMessage.toLowerCase().includes('5') || userMessage.toLowerCase().includes('등산화')) {
+                    selectedShoeType = '등산화';
                     showSubCategories2(['']);
                     CATEGORY_STATUS = 3;
+                } else if (userMessage.toLowerCase().includes('6') || userMessage.toLowerCase().includes('슬립온')) {
+                    selectedShoeType = '슬립온';
+                    showSubCategories2(['']);
+                    CATEGORY_STATUS = 3;
+
 
                 } else {
                     setTimeout(function () {
@@ -140,26 +103,13 @@
             userInput.val('');
         }
 
-        function showButtons(buttonTexts) {
-            const buttonsContainer = $('<div></div>').addClass('buttons-container');
-
-            buttonTexts.forEach((text, index) => {
-                const button = $('<button></button>').text(text);
-                button.click(function () {
-                    sendMessage(text);
-                });
-                buttonsContainer.append(button);
-            });
-
-            chatContainer.append(buttonsContainer);
-            chatContainer.scrollTop(chatContainer.prop('scrollHeight'));
-        }
-
         function showSubCategories(subCategories) {
             setTimeout(function () {
                 appendMessage('<br>chatbot', `<br>선택한 성별: ${selectedGender}`);
                 appendMessage('chatbot', '<br>신발 종류를 선택해주세요👟');
-                showButtons(subCategories);
+                for (let k = 0; k < subCategories.length; k++) {
+                    chatContainer.append(`${k + 1}.${subCategories[k]}<br>`);
+                }
                 chatContainer.scrollTop(chatContainer.prop('scrollHeight'));
             }, 500);
         }
@@ -168,73 +118,30 @@
             setTimeout(function () {
                 appendMessage('<br>chatbot', `<br>선택한 신발 종류: ${selectedShoeType}`);
                 appendMessage('chatbot', '<br>입력하신 신발 정보의 페이지로 안내합니다😊😊');
-
-                let link;
-                if (selectedGender === '남성용') {
-                    if (selectedShoeType === '스니커즈') {
-                        link = $('<a></a>').attr('href', 'seller/men/Sneakers.html').attr('target', '_blank').text('남성용 스니커즈 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '축구화') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 축구화 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '런닝화') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 런닝화 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '슬리퍼') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 슬리퍼 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '등산화') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 등산화 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '슬립온') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 슬립온 상세 정보 보러 가기');
-                    }
-                } else if (selectedGender === '여성용') {
-                    if (selectedShoeType === '스니커즈') {
-                        link = $('<a></a>').attr('href', 'woman_sneakers.html').attr('target', '_blank').text('여성용 스니커즈 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '런닝화') {
-                        link = $('<a></a>').attr('href', 'woman_running.html').attr('target', '_blank').text('여성용 런닝화 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '슬리퍼') {
-                        link = $('<a></a>').attr('href', 'woman_running.html').attr('target', '_blank').text('여성용 슬리퍼 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '부츠') {
-                        link = $('<a></a>').attr('href', 'woman_running.html').attr('target', '_blank').text('여성용 부츠 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '하이킹부츠') {
-                        link = $('<a></a>').attr('href', 'woman_running.html').attr('target', '_blank').text('여성용 하이킹부츠 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '슬립온') {
-                        link = $('<a></a>').attr('href', 'woman_running.html').attr('target', '_blank').text('여성용 슬립온 상세 정보 보러 가기');
-                    }
-                } else if (selectedGender === '키즈용') {
-                    if (selectedShoeType === '스니커즈') {
-                        link = $('<a></a>').attr('href', 'kids_slippers.html').attr('target', '_blank').text('키즈용 스니커즈 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '축구화') {
-                        link = $('<a></a>').attr('href', 'kids_hiking.html').attr('target', '_blank').text('키즈용 축구화 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '런닝화') {
-                        link = $('<a></a>').attr('href', 'kids_hiking.html').attr('target', '_blank').text('키즈용 런닝화 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '슬리퍼') {
-                        link = $('<a></a>').attr('href', 'kids_hiking.html').attr('target', '_blank').text('키즈용 슬리퍼 상세 정보 보러 가기');
-                    } else if (selectedShoeType === '슬립온') {
-                        link = $('<a></a>').attr('href', 'kids_hiking.html').attr('target', '_blank').text('키즈용 슬립온 상세 정보 보러 가기');
-                    }
-                }
-                if (!link) {
-                    link = $('<a></a>').attr('href', 'default.html').attr('target', '_blank').text('메인 페이지 보러 가기');
-                }
+                const link = $('<a></a>')
+                    .attr('href', '../../seller/men/man.html')
+                    .attr('target', '_blank')
+                    .text('신발 상세 정보 보러 가기');
 
                 chatContainer.append(link);
                 chatContainer.scrollTop(chatContainer.prop('scrollHeight'));
             }, 500);
         }
 
-
         환영인사();
 
         let inputContainer = $('<div id="input-container"></div>').appendTo('body');
         let userInput = $('<input type="text" id="user-input" placeholder="무엇이 궁금한가요?">').appendTo(inputContainer);
-        let sendBtn = $('<button id="send-btn">Enter</button>').appendTo(inputContainer);
+        let sendBtn=$('<button id="send-btn">질문</button>').appendTo(inputContainer);
 
         sendBtn.click(function () {
-            const userMessage = userInput.val();
+            const userMessage=userInput.val();
             sendMessage(userMessage);
         });
 
-        userInput.keypress(function (e) {
-            if (e.which === 13) {
-                const userMessage = userInput.val();
+        userInput.keypress(function(e) {
+            if(e.which===13) {
+                const userMessage=userInput.val();
                 sendMessage(userMessage);
             }
         });

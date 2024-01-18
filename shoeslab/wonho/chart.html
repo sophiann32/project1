@@ -22,31 +22,34 @@
 <div class="sneakers">
     <div class="sneakers-item">
 
-        <a href="basket.html?productName=마가렛 4.5&productPrice=19000&imageUrl=images/Sneakers/마가렛4.5.png" class="product-info">
+        <a href="basket.html?productName=마가렛 4.5&productPrice=19000&imageUrl=images/Sneakers/마가렛4.5.png" target="_blank" class="product-info">
             <img src="images/Sneakers/마가렛4.5.png "></a>
         <p class="product-name">마가렛 4.5</p>
         <p class="product-price">19,000</p>
     </div>
     <div class="sneakers-item">
-        <a href="basket.html?productName=우먼스 아니키 이-시리즈 AD&productPrice=89000&imageUrl=images/Sneakers/우먼스_아니키_이시리즈_AD.png">
+        <a href="basket.html?productName=우먼스 아니키 이-시리즈 AD&productPrice=89000&imageUrl=images/Sneakers/우먼스_아니키_이시리즈_AD.png" target="_blank">
             <img src="images/Sneakers/우먼스_아니키_이시리즈_AD.png"></a>
         <p class="product-name">우먼스 아니키 이-시리즈 AD</p>
         <p class="product-price">89,000</p>
     </div>
     <div class="sneakers-item">
-        <a href="basket.html?productName=트리플 캔버스&productPrice=69000&imageUrl=images/Sneakers/트리플_캔버스.png">
+        <a href="basket.html?productName=트리플 캔버스&productPrice=69000&imageUrl=images/Sneakers/트리플_캔버스.png" target="_blank">
             <img src="images/Sneakers/트리플_캔버스.png"></a>
         <p class="product-name">트리플 캔버스</p>
         <p class="product-price">69,000</p>
     </div>
 </div>
-<canvas id="myChart"></canvas>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
     // Initialize clickCounts to store the click data
     let clickCounts = {};
+    let chartData = [1,2,3]
+    let chartGraph;
+
 
     // Event listener for image clicks
     document.querySelectorAll('.sneakers-item img').forEach(function (img) {
@@ -55,7 +58,9 @@
             clickCounts[productName] = (clickCounts[productName] || 0) + 1;
 
             // Update the chart whenever there's a click
-            updateChart();
+            chartGraph.update()
+            // updateChart();
+
         });
     });
 
@@ -74,13 +79,13 @@
         }
 
         const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, {
+        chartGraph = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: labels,
+                labels: ['Sneakers', 'Walkers', 'Running Shoes', 'Slipon', 'Slipper', 'Soccer Shoes', 'Mountain Shoes', 'Hiking boots'],
                 datasets: [{
                     label: '눈땡이',
-                    data: [12, 19, 3, 5, 2, 3, 7, 8],
+                    data: chartData,
                     borderWidth: 1
                 }]
             },
@@ -93,6 +98,7 @@
             }
         });
     }
+    updateChart()
 </script>
 
 

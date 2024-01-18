@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoes Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+<button onclick="resetChart()"> 초기화 </button>
+<button onclick="updateChart()"> 차트갱신 </button>
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+   // let chartData = [1,2,3]
+ //   let chartGraph;
+    // document.write('조회수:'+localStorage.clicks+'<br>');
+    // document.write('상품명:'+localStorage.productName);
+
+     // let clicks;
+     // clicks+=localStorage.clicks;
+     // let productName=localStorage.productName;
+   //  chartGraph.update()
+
+
+  //    let clicks = localStorage.getItem('clicks') ? parseInt(localStorage.getItem('clicks')) : 0;
+  //     let productName = localStorage.getItem('productName') || '';
+
+
+
+     // let clicks= localStorage.getItem('clicks');
+     // let productName= localStorage.getItem('productName');
+     // const productData=[
+     //     {
+     //         name: productName,clciks:clicks,
+     //     }
+     // ];
+
+
+
+
+     //-------------------------------------------------
+    let clickMoniterChart
+    let clickMoniterChart_Labels = [];
+    let clickMoniterChart_Values =[];
+
+    function resetChart(){
+        localStorage.setItem('data','{}')
+    }
+     function updateChart(){
+         // 현재 시점 기준 데이터 가져오기
+         clickMoniterChart_Labels = Object.keys(JSON.parse(localStorage.getItem('data')));
+         clickMoniterChart_Values = Object.values(JSON.parse(localStorage.getItem('data')));
+
+         // 차트에 데이터 변경 내용 갱신
+         if (clickMoniterChart) {
+             // 차트가 초기화되었는지 확인 후 업데이트
+             clickMoniterChart.data.labels = clickMoniterChart_Labels;
+             clickMoniterChart.data.datasets[0].data = clickMoniterChart_Values;
+             clickMoniterChart.update();
+         }
+     }
+
+     function createChart(){
+         // 초기 상태를 가져옴
+         clickMoniterChart_Labels = Object.keys(JSON.parse(localStorage.getItem('data')));
+         clickMoniterChart_Values = Object.values(JSON.parse(localStorage.getItem('data')));
+
+         const ctx = document.getElementById('myChart').getContext('2d');
+         clickMoniterChart = new Chart(ctx, {
+             type: 'bar',
+             data: {
+                 //      labels: ['Sneakers', 'Walkers', 'Running Shoes', 'Slipon', 'Slipper', 'Soccer Shoes', 'Mountain Shoes', 'Hiking boots'],
+                 //      labels: [productName],
+                 labels:clickMoniterChart_Labels,
+                 datasets: [{
+                     label: '눈탱이',
+                     data: clickMoniterChart_Values,
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     y: {
+                         beginAtZero: true
+                     }
+                 }
+             }
+         });
+     }
+   createChart()
+   //-------------------------------------------------
+
+
+   // Update chart data
+  // let chartData = [clicks];
+  //   function updateChart(productData) {
+  //       // const labels = Object.keys(clickCounts);
+  //       // const data = Object.values(clickCounts);
+  //
+  //       // Check if the canvas element exists
+  //       const existingCanvas = document.getElementById('myChart');
+  //       if (!existingCanvas) {
+  //           // If the canvas doesn't exist, create a new canvas element
+  //           const canvas = document.createElement('canvas');
+  //           canvas.id = 'myChart';
+  //           document.body.appendChild(canvas);
+  //       }
+  //
+  //       const ctx = document.getElementById('myChart').getContext('2d');
+  //       chartGraph = new Chart(ctx, {
+  //           type: 'bar',
+  //           data: {
+  //         //      labels: ['Sneakers', 'Walkers', 'Running Shoes', 'Slipon', 'Slipper', 'Soccer Shoes', 'Mountain Shoes', 'Hiking boots'],
+  //         //      labels: [productName],
+  //               labels:productData.map(product=>product.name),
+  //               datasets: [{
+  //                   label: '눈땡이',
+  //                   data: productData.map(product=>product.clicks),
+  //                   borderWidth: 1
+  //               }]
+  //           },
+  //           options: {
+  //               scales: {
+  //                   y: {
+  //                       beginAtZero: true
+  //                   }
+  //               }
+  //           }
+  //       });
+  //   }
+   // updateChart(productData);
+</script>
+
+</body>
+
+</html>
