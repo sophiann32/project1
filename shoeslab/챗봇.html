@@ -149,7 +149,7 @@
         function showButtons(buttonTexts) {
             const buttonsContainer = $('<div></div>').addClass('buttons-container');
 
-            buttonTexts.forEach((text, index) => {
+            buttonTexts.forEach((text) => {
                 const button = $('<button></button>').text(text);
                 button.click(function () {
                     sendMessage(text);
