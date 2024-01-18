@@ -43,12 +43,14 @@ img {
     color: #FFFFFF;
     border: none;
     border-radius: 50px;
-    margin-top: -50px; /* 이미지 위로 버튼을 올리는 위치 설정 */
-    position: absolute; /* 버튼을 이미지를 기준으로 하는 상대적인 위치 설정 */
-    top: 49.5%; /* 버튼을 이미지 위로 올리는 정도 설정 */
+    margin-top: -50px;
+    position: absolute;
+    top: 49.5%;
     left: 52.5%;
-    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    transform: translate(-50%, -50%);
 }
 .btn:hover {
     background-color: #999999;
 }
+
+
