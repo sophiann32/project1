@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/챗봇.css">
+    <link rel="stylesheet" href="suho/css/챗봇.css">
     <title>chatbot5</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
@@ -84,31 +84,31 @@
                     selectedShoeType = '스니커즈';
                     showSubCategories2(['']);
                     CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('런닝화')) {
-                        selectedShoeType = '런닝화';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('슬리퍼')) {
-                        selectedShoeType = '슬리퍼';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('부츠')) {
-                        selectedShoeType = '부츠';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('하이킹부츠')) {
-                        selectedShoeType = '하이킹부츠';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else if (userMessage.toLowerCase().includes('슬립온')) {
-                        selectedShoeType = '슬립온';
-                        showSubCategories2(['']);
-                        CATEGORY_STATUS = 3;
-                    } else {
-                        setTimeout(function () {
-                            appendMessage('chatbot', '죄송합니다. 입력하신 정보로는 처리할 수 없습니다😥');
-                        }, 500);
-                    }
+                } else if (userMessage.toLowerCase().includes('런닝화')) {
+                    selectedShoeType = '런닝화';
+                    showSubCategories2(['']);
+                    CATEGORY_STATUS = 3;
+                } else if (userMessage.toLowerCase().includes('슬리퍼')) {
+                    selectedShoeType = '슬리퍼';
+                    showSubCategories2(['']);
+                    CATEGORY_STATUS = 3;
+                } else if (userMessage.toLowerCase().includes('부츠')) {
+                    selectedShoeType = '부츠';
+                    showSubCategories2(['']);
+                    CATEGORY_STATUS = 3;
+                } else if (userMessage.toLowerCase().includes('하이킹부츠')) {
+                    selectedShoeType = '하이킹부츠';
+                    showSubCategories2(['']);
+                    CATEGORY_STATUS = 3;
+                } else if (userMessage.toLowerCase().includes('슬립온')) {
+                    selectedShoeType = '슬립온';
+                    showSubCategories2(['']);
+                    CATEGORY_STATUS = 3;
+                } else {
+                    setTimeout(function () {
+                        appendMessage('chatbot', '죄송합니다. 입력하신 정보로는 처리할 수 없습니다😥');
+                    }, 500);
+                }
             } else if (selectedGender === '키즈용') {
                 if (userMessage.toLowerCase().includes('스니커즈')) {
                     selectedShoeType = '스니커즈';
@@ -176,17 +176,17 @@
                 let link;
                 if (selectedGender === '남성용') {
                     if (selectedShoeType === '스니커즈') {
-                        link = $('<a></a>').attr('href', 'man_sneakers.html').attr('target', '_blank').text('남성용 스니커즈 상세 정보 보러 가기');
+                        link = $('<a></a>').attr('href', 'seller/men/Sneakers.html').attr('target', '_blank').text('남성용 스니커즈 상세 정보 보러 가기');
                     } else if (selectedShoeType === '축구화') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 축구화 상세 정보 보러 가기');
+                        link = $('<a></a>').attr('href', 'seller/men/Football_shoes.html').attr('target', '_blank').text('남성용 축구화 상세 정보 보러 가기');
                     } else if (selectedShoeType === '런닝화') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 런닝화 상세 정보 보러 가기');
+                        link = $('<a></a>').attr('href', 'seller/men/Running_shoes.html').attr('target', '_blank').text('남성용 런닝화 상세 정보 보러 가기');
                     } else if (selectedShoeType === '슬리퍼') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 슬리퍼 상세 정보 보러 가기');
+                        link = $('<a></a>').attr('href', 'seller/men/Sliper.html').attr('target', '_blank').text('남성용 슬리퍼 상세 정보 보러 가기');
                     } else if (selectedShoeType === '등산화') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 등산화 상세 정보 보러 가기');
+                        link = $('<a></a>').attr('href', 'seller/men/Hiking_boots.html').attr('target', '_blank').text('남성용 등산화 상세 정보 보러 가기');
                     } else if (selectedShoeType === '슬립온') {
-                        link = $('<a></a>').attr('href', 'man_soccer.html').attr('target', '_blank').text('남성용 슬립온 상세 정보 보러 가기');
+                        link = $('<a></a>').attr('href', 'seller/men/Slip-on.html').attr('target', '_blank').text('남성용 슬립온 상세 정보 보러 가기');
                     }
                 } else if (selectedGender === '여성용') {
                     if (selectedShoeType === '스니커즈') {
