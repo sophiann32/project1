@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/jquery.js"></script>
+</head>
+<style>
+    @font-face {
+        font-family: 'NotoSansKR-Regular';
+        src:local('NotoSansKR-Regular'),
+        url('../../NotoSansKR-Regular.ttf'),
+        url('../../NotoSansKR-Light.ttf') format('woff'),
+        url('../../NotoSansKR-Light.ttf') format('truetype');
+    }
+
+    .head {
+        font-family: 'NotoSansKR-Regular',sans-serif;
+        text-align: center;
+    }
+
+    * {
+        background: #FFFFFF;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .pay-table  {
+        margin: auto;
+        margin-top: 40px;
+        border: 1px solid saddlebrown;
+        border-collapse: collapse;
+        /*background: #ffffff;*/
+        font-weight: 400;
+        font-size: 20px;
+        width: 400px;
+        float: right;
+        /*background-color: #4fa9ad;
+                 */
+    }
+
+    th,td {
+
+        border:1px solid saddlebrown;
+        padding: 3px 11px;
+        height: 35px;
+
+    }
+    th {
+          width: 60px;
+    }
+
+    td {
+        width: 80px;
+        padding-left: 21px;
+    }
+
+    img  {
+        display: block;
+        /*margin: 0 auto;*/
+        padding: 11px;
+        /*position: relative;*/
+
+    }
+
+    .qnt-select, .size-select, .color-select {
+        font-size: 18px;
+        margin-left: 7px;
+        padding: 3px;
+
+    }
+    .coupon {
+        font-size: 18px;
+    }
+    .btn {
+        /*display: inline-block;*/
+        text-align: center;
+        position: absolute;
+        margin-top: -140px;
+        margin-left: 1150px;
+    /*    이건 아닌데...이미지의 위치의 변동과 같이 움직이게끔 해야 되는데...*/
+    }
+
+    button[type="submit"] {
+        display: inline-block; /* Make the button inline-block to center align */
+        margin: 0 auto; /* Set margins to auto to horizontally center the button */
+        width: 200px;
+        height: 50px;
+        font-size: 22px;
+        border-radius: 4px;
+        background-color: #aa7d80;
+    }
+
+
+</style>
+
+<body>
+<header class="head">
+<h1 class="productName">상품 구매</h1>
+</header>
+<div class="container">
+<img src="images/Sneakers/마가렛4.5.png" id="img">
+<!--<img src="">-->
+<table class="pay-table">
+    <tr>
+        <th>상품명</th>
+        <td class="productName">product Name</td>
+    </tr>
+    <tr>
+        <th rowspan="2">상품정보</th>
+        <td> 색상
+        <select class="color-select">
+            <option value="" selected> 베이지</option>
+            <option value=""> 남색 </option>
+            <option value=""> 핑크</option>
+        </select>
+        </td>
+    </tr>
+        <tr>
+<!--        <th>상품정보</th>-->
+        <td>사이즈
+            <select class="size-select">
+        <option value="" >220</option>
+            <option value="" >225</option>
+            <option value="" >230</option>
+            <option value="" >235</option>
+            <option value="" >240</option>
+            <option value="" >245</option>
+            <option value="" >250</option>
+            <option value="" >255</option>
+            <option value="" selected>260</option>
+            <option value="" >265</option>
+            <option value="" >270</option>
+            <option value="" >275</option>
+            <option value="" >280</option>
+            <option value="" >285</option>
+
+            </select>
+
+
+        </td>
+</tr>
+
+      <tr>
+
+        <th>수량</th>
+        <td id="select">
+            <select class="qnt-select">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+
+            </select>
+
+        </td>
+    </tr>
+    <tr>
+<!--        <td></td>-->
+        <td style="color: coral;text-align: center" colspan="2" ><small >10 수량 초과는 고객센터로 문의하세요</small></td>
+    </tr>
+    <tr>
+    <th >판매가</th>
+    <td id="productPrice" data-price="10000" >Product Price</td>
+</tr>
+    <tr>
+    <th>쿠폰</th>
+    <td>
+        <select class="coupon">
+            <option value selected>쿠폰선택안함</option>
+            <option value="10">10% 할인쿠폰</option>
+            <option value="15">15% 첫 가입 할인쿠폰</option>
+        </select>
+    </td>
+        <tr>
+    <th>배송비</th>
+    <td>3000원</td>
+</tr>
+    <tr>
+    <th>총계</th>
+    <td id="total">0</td>
+</tr>
+
+</table>
+</div>
+
+<div class="btn">
+<button type="submit">구매</button>
+</div>
+
+</body>
+<script>
+    //###########################################
+    // 페이지 갱신됐을 때 데이터 바인딩 작업
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('productName');
+    const productPrice = urlParams.get('productPrice');
+    const imageUrl = urlParams.get('imageUrl');
+
+    $('.productName').text(productName)
+    $('#productPrice').text(productPrice)
+    $('#img').attr('src',imageUrl)
+    //###########################
+
+
+    // 가격 계산 비즈니스 로직
+    function updateFinalPrice(){
+        const qnt = parseInt($('.qnt-select').val());
+        const coupon = parseFloat($('.coupon').val());
+        const deliveryFee = 3000
+        var PriceRate = 1
+
+    //유효성 검정
+        if(isNaN(qnt)){
+            $('#total').text('수량이 입력되지 않았습니다');
+            return
+        }
+        if(isNaN(productPrice)){
+            $('#total').text('가격이 입력되지 않았습니다');
+            return;
+        }
+        if(!isNaN(coupon)){
+            PriceRate = (1 - coupon / 100)
+        }
+
+        // 가격 갱신
+        let total = parseFloat(qnt * productPrice * PriceRate + deliveryFee).toFixed(2);
+        $('#total').text(total);
+    }
+
+    // 이벤트 등록 작업
+    $(document).ready(function() {
+        $('.qnt-select, .coupon').change(function() {
+            updateFinalPrice();
+        });
+    });
+
+    //페이지 들어오자마자 가격 갱신
+    $(updateFinalPrice);
+
+   //
+   // $(function(){
+   //     $(function updateTotal() {
+   //
+   //         // const qnt=document.querySelector('.qnt-select').getAttribute('value');
+   //         // const price=document.querySelector('#price').getAttribute('');
+   //         // const coupon=document.querySelector('.coupon').getAttribute('');
+   //         // let total=qnt*price*coupon const qnt=document.querySelector('.qnt-select').getAttribute('value');
+   //         const qnt = parseInt($('.qnt-select').val());
+   //        // const price = parseInt($('#productPrice').data('price'));
+   //         const coupon = parseFloat($('.coupon').val());
+   //         const deliveryFee = 3000;
+   //
+   //         // examine the validity of qnt, price, coupon
+   //         if (!isNaN(qnt) && !isNaN(price) && !isNaN(coupon)) {
+   //             // Calculate total price
+   //             let total = qnt * price * (1 - coupon / 100) + deliveryFee;
+   //
+   //             // Update the total in the HTML
+   //             $('#total').text(total.toFixed(2));
+   //         } else {
+   //             // Handle the case where parsing fails, set total to 0 or show an error message
+   //             $('#total').text('0.00');
+   //         }
+   //
+   //         //calculate total price
+   //         // let total=qnt*price*(1-coupon/100)+deliveryFee;
+   //         //
+   //         // //update the total
+   //         // $('#total').text(total.toFixed(2));
+   //
+   //         //Event listener for quantity change and coupon policy
+   //         $(' .qnt-select, .coupon').on('change', function () {
+   //             updateTotal();
+   //         });
+   //
+   //         //Inital update
+   //         updateTotal();
+   //
+   //       // attempt to get the data from category.html and bind them on the HTML body
+   //       //   const productInfo=document.querySelectorAll('.product-info');
+   //       //
+   //       //       const productName=productInfo.getAttribute('data-product');
+   //       //       const productPrice=productInfo.getAttribute('data-price');
+   //       //
+   //  // $('#productName').text(productName);
+   //  // $('#productPrice').data('price',productPrice);
+   //
+   //
+   //        });
+   // })
+</script>
+
+</html>
