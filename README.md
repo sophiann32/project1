@@ -15,10 +15,11 @@
 
 ##### 주요기능
 메인페이지  
-![main](https://github.com/kimdaegeunn/project_1/assets/153577525/00c5be25-05f9-4c02-bd95-6845c9085782)
+![main](https://github.com/kimdaegeunn/project_1/assets/153577525/efcdeaa0-5122-4921-acd9-67a81b614eca)
 
 
-#####
-###### 개발환경
-HTML, css, Javascript, jqeury, Bootstrap,cloud AWS NodeJS,Express
-putty,WinSCP
+###### 향후 과제 
++ 마이페이지
++ 결제시스템
++ 주요기능보완
+
