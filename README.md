@@ -50,3 +50,84 @@
 - 제품 상세페이지 자료 전부 연동  
 - 회원가입 유효성검사 비밀번호 js파일 수정아 더 필요함  
 - 챗봇 모든 질문과 답변이 끝나면 다시 첫 질문으로 돌아갈 수 있게 구현하기
+
+# 탭이름 오른쪽키 화면 미리보기
+## md파일은 markdown 화면 보인다.
+목록
+- 첫번째
++ 두번째
+  1. 숫자목록
+  2. 하하
+1. 빼기 누르니 하위로 가네
+
+> 있어보이는말
+> 줄바꿈은 마지막에 띄어쓰기 두번!!  
+>      앞에 띄어쓰기 인식안하네
+
+`세개쓰면 코드 블록
+`세개 쓰고 언어이름 쓰면 해당 언어로 색깔 칠해줌
+java
+```java
+public static void main(){
+
+}
+```
+방금 신기했음.. 쓰는동안 다른언어 색깔 적용되는게
+터미널은 shell
+```shell 오 빈칸되네
+
+```mermaid
+erDiagram
+    MEMBER {
+        varchar2 member_id PK "회원 ID"
+        number member_num "가입한 순서"
+        varchar2 member_pw "비밀번호"
+        varchar2 member_name "닉네임"
+        varchar2 member_role "역할(관리자 등)"
+    }
+    HOTSPOT {
+        number spot_idx PK "입력한 순서"
+        varchar2 spot_name "소재지 이름(장소이름)"
+        varchar2 spot_address "실제 주소"
+        varchar2 Auther_id "작성자 ID"
+        varchar2 region "지역"
+        number x_position "X 좌표"
+        number y_position "Y 좌표"
+        varchar2 image_path "이미지 경로"
+        clob content "설명"
+        number likes "좋아요"
+    }
+    BULLETIN {
+        number post_id PK "게시물 ID"
+        varchar2 writer_id "작성자 ID"
+        varchar2 title "제목"
+        clob content "내용"
+        number views "조회수"
+        timestamp created_at "작성 시각"
+    }
+    COMMENTS {
+        number comment_id PK "댓글 ID"
+        number post_id "게시물 ID"
+        varchar2 writer_id "작성자 ID"
+        varchar2 content "내용"
+        timestamp created_at "작성 시각"
+        number parent_comment_id "부모 댓글 ID"
+    }
+
+    MEMBER ||--o{ HOTSPOT : "Auther_id"
+    MEMBER ||--o{ BULLETIN : "writer_id"
+    MEMBER ||--o{ COMMENTS : "writer_id"
+    HOTSPOT ||--|| MEMBER : "Auther_id"
+    BULLETIN ||--|| MEMBER : "writer_id"
+    COMMENTS }|--|| MEMBER : "writer_id"
+    COMMENTS ||--o{ COMMENTS : "parent_comment_id"
+    BULLETIN ||--o{ COMMENTS : "post_id"
+
+```
+
+>  ![](./_PT/veiwMain.png)
+get : `/main`
+#### 1.main
+- [ ] id 유효성 검사 fromt에서도 검증하기
+- [ ] name 유효성 검사 fromt에서도 검증하기
+
